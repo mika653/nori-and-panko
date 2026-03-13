@@ -25,31 +25,31 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ─────────────────────────────────────────────
        DESIGN TOKENS — Nori and Panko Warm Palette
     ───────────────────────────────────────────── */
     :root {
-      --clr-primary:          #E8913A;
-      --clr-primary-dark:     #C97A2E;
-      --clr-primary-light:    #F2B06A;
-      --clr-primary-subtle:   #FFF8F0;
-      --clr-secondary:        #6B8F71;
-      --clr-secondary-subtle: #F0F5F1;
-      --clr-accent:           #D4638F;
+      --clr-primary:          #6B3FA0;
+      --clr-primary-dark:     #4E2D78;
+      --clr-primary-light:    #B8A0D2;
+      --clr-primary-subtle:   #F5F0FA;
+      --clr-secondary:        #E8A0BF;
+      --clr-secondary-subtle: #FDF2F7;
+      --clr-accent:           #F0C060;
       --clr-peach:            #FDE8D0;
-      --clr-bg:               #FFFAF5;
-      --clr-bg-alt:           #FFF3E6;
+      --clr-bg:               #FAF7FD;
+      --clr-bg-alt:           #F3EEFA;
       --clr-surface:          #FFFFFF;
-      --clr-text:             #2B1F14;
-      --clr-text-secondary:   #6B5A48;
-      --clr-text-muted:       #9B8A78;
-      --clr-border:           #E8DFD5;
+      --clr-text:             #2B1A3E;
+      --clr-text-secondary:   #6B5A7A;
+      --clr-text-muted:       #9B8AAA;
+      --clr-border:           #E0D6EB;
 
       --ff-heading: 'Playfair Display', Georgia, serif;
-      --ff-body:    'Nunito', system-ui, sans-serif;
+      --ff-body:    'Quicksand', system-ui, sans-serif;
 
       --radius-sm:  0.375rem;
       --radius-md:  0.75rem;
@@ -57,10 +57,10 @@
       --radius-xl:  2rem;
       --radius-full: 9999px;
 
-      --shadow-sm:  0 1px 3px rgba(232,145,58,.08), 0 1px 2px rgba(232,145,58,.04);
-      --shadow-md:  0 4px 16px rgba(232,145,58,.10), 0 2px 6px rgba(232,145,58,.06);
-      --shadow-lg:  0 12px 40px rgba(232,145,58,.14), 0 4px 12px rgba(232,145,58,.08);
-      --shadow-xl:  0 24px 64px rgba(232,145,58,.16), 0 8px 24px rgba(232,145,58,.10);
+      --shadow-sm:  0 1px 3px rgba(107,63,160,.08), 0 1px 2px rgba(107,63,160,.04);
+      --shadow-md:  0 4px 16px rgba(107,63,160,.10), 0 2px 6px rgba(107,63,160,.06);
+      --shadow-lg:  0 12px 40px rgba(107,63,160,.14), 0 4px 12px rgba(107,63,160,.08);
+      --shadow-xl:  0 24px 64px rgba(107,63,160,.16), 0 8px 24px rgba(107,63,160,.10);
 
       --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -81,7 +81,7 @@
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--clr-primary); background: var(--clr-primary-subtle);
-      border: 1px solid rgba(232,145,58,.2); border-radius: var(--radius-full);
+      border: 1px solid rgba(107,63,160,.2); border-radius: var(--radius-full);
       padding: 0.35rem 1rem; margin-bottom: 1.25rem;
     }
     .section-title {
@@ -102,7 +102,7 @@
       text-decoration: none; border: 2px solid transparent; cursor: pointer;
     }
     .btn-primary { background: var(--clr-primary); color: #fff; border-color: var(--clr-primary); }
-    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,145,58,.35); }
+    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(107,63,160,.35); }
     .btn-secondary { background: transparent; color: var(--clr-primary); border-color: var(--clr-primary); }
     .btn-secondary:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
     .btn-white { background: #fff; color: var(--clr-primary-dark); border-color: #fff; }
@@ -111,7 +111,7 @@
     .btn-lg { padding: 1rem 2.5rem; font-size: 1.05rem; }
 
     /* NAV */
-    .nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,245,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--clr-border); transition: box-shadow var(--transition); }
+    .nav { position: sticky; top: 0; z-index: 1000; background: rgba(250,247,253,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--clr-border); transition: box-shadow var(--transition); }
     .nav.scrolled { box-shadow: var(--shadow-md); }
     .nav-container { display: flex; align-items: center; gap: 2rem; height: 72px; }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
@@ -132,9 +132,9 @@
     @media (max-width: 900px) { .nav-links, .nav-actions { display: none; } .nav-toggle { display: flex; } }
 
     /* HERO */
-    .hero { background: linear-gradient(135deg, #FFFAF5 0%, #ffffff 60%, #FFF3E6 100%); padding-block: 6rem 4rem; position: relative; overflow: hidden; }
+    .hero { background: linear-gradient(135deg, #FAF7FD 0%, #ffffff 60%, #F3EEFA 100%); padding-block: 6rem 4rem; position: relative; overflow: hidden; }
     .hero-container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--clr-secondary); background: var(--clr-secondary-subtle); border: 1px solid rgba(107,143,113,.2); border-radius: var(--radius-full); padding: 0.35rem 1rem; margin-bottom: 1.5rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--clr-secondary); background: var(--clr-secondary-subtle); border: 1px solid rgba(232,160,191,.2); border-radius: var(--radius-full); padding: 0.35rem 1rem; margin-bottom: 1.5rem; }
     .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--clr-secondary); display: inline-block; }
     .hero-title { font-family: var(--ff-heading); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; line-height: 1.15; color: var(--clr-text); margin-bottom: 1.25rem; }
     .hero-title span { color: var(--clr-primary); font-style: italic; }
@@ -149,7 +149,7 @@
     .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
     .hero-blob { position: relative; width: 420px; height: 420px; flex-shrink: 0; animation: floatBlob 6s ease-in-out infinite; }
     @keyframes floatBlob { 0%, 100% { transform: translateY(0px) rotate(0deg); } 33% { transform: translateY(-14px) rotate(1.5deg); } 66% { transform: translateY(-7px) rotate(-1deg); } }
-    .hero-blob-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 40%, #FFF8F0 0%, #FDDCB5 60%, #F2B06A 100%); border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%; }
+    .hero-blob-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 40%, #F5F0FA 0%, #DDD0EE 60%, #B8A0D2 100%); border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%; }
     .hero-blob-inner { position: absolute; inset: 28px; border-radius: 55% 45% 50% 50% / 55% 45% 55% 45%; overflow: hidden; background: var(--clr-peach); display: flex; align-items: center; justify-content: center; }
     .hero-blob-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
     .hero-blob-emoji { font-size: 6rem; line-height: 1; }
@@ -288,7 +288,7 @@
   <nav class="nav" id="mainNav">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">🐾</div>
+        <img src="326019119_713297257168598_2456630916883550484_n.jpg" alt="Nori &amp; Panko Logo" style="height:40px;">
         <div>
           <div class="nav-logo-name">Nori and Panko</div>
           <div class="nav-logo-sub">Home Vet Service</div>
@@ -501,7 +501,7 @@
                   "I used to dread bringing Luna to the vet — she would cry the whole ride. Nori and Panko came to our house and she was completely calm! They were so gentle and thorough. Game changer for anxious pets!"
                 </blockquote>
                 <div class="testimonial-author">
-                  <div class="testimonial-avatar" aria-hidden="true" style="background:#E8913A;">AC</div>
+                  <div class="testimonial-avatar" aria-hidden="true" style="background:#6B3FA0;">AC</div>
                   <div>
                     <div class="testimonial-name">Angela Cruz</div>
                     <div class="testimonial-role">Cat mom to Luna — Persian mix</div>
@@ -517,7 +517,7 @@
                   "Our puppy Bruno got his complete vaccines without us leaving the house. The team was on time, professional, and so sweet with him. Will definitely be booking again for his boosters!"
                 </blockquote>
                 <div class="testimonial-author">
-                  <div class="testimonial-avatar" aria-hidden="true" style="background:#6B8F71;">RM</div>
+                  <div class="testimonial-avatar" aria-hidden="true" style="background:#E8A0BF;">RM</div>
                   <div>
                     <div class="testimonial-name">Rico Mendoza</div>
                     <div class="testimonial-role">Dog dad to Bruno — Labrador puppy</div>
@@ -533,7 +533,7 @@
                   "Had the kapon (spay) procedure done for my cats Mochi and Soba. The team was very reassuring throughout. Post-op care instructions were clear and my girls recovered beautifully!"
                 </blockquote>
                 <div class="testimonial-author">
-                  <div class="testimonial-avatar" aria-hidden="true" style="background:#D4638F;">SL</div>
+                  <div class="testimonial-avatar" aria-hidden="true" style="background:#F0C060;">SL</div>
                   <div>
                     <div class="testimonial-name">Sofia Lim</div>
                     <div class="testimonial-role">Cat mom to Mochi &amp; Soba</div>
@@ -549,7 +549,7 @@
                   "I have three dogs and taking them all to a clinic was a logistical nightmare. Nori and Panko handled all three in one visit at home. Saved me so much time and stress. Highly recommend!"
                 </blockquote>
                 <div class="testimonial-author">
-                  <div class="testimonial-avatar" aria-hidden="true" style="background:#C97A2E;">JR</div>
+                  <div class="testimonial-avatar" aria-hidden="true" style="background:#4E2D78;">JR</div>
                   <div>
                     <div class="testimonial-name">Joel Reyes</div>
                     <div class="testimonial-role">Dog dad to Tofu, Miso &amp; Tempeh</div>

@@ -6,30 +6,30 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Admin Dashboard | Nori and Panko Home Service Veterinarian</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --clr-primary:          #E8913A;
-      --clr-primary-dark:     #C97A2E;
-      --clr-primary-light:    #F2B06A;
-      --clr-primary-subtle:   #FFF8F0;
-      --clr-secondary:        #6B8F71;
-      --clr-secondary-subtle: #F0F5F1;
-      --clr-accent:           #D4638F;
-      --clr-bg:               #F5F2EE;
+      --clr-primary:          #6B3FA0;
+      --clr-primary-dark:     #4E2D78;
+      --clr-primary-light:    #B8A0D2;
+      --clr-primary-subtle:   #F5F0FA;
+      --clr-secondary:        #E8A0BF;
+      --clr-secondary-subtle: #FDF2F7;
+      --clr-accent:           #F0C060;
+      --clr-bg:               #FAF7FD;
       --clr-surface:          #FFFFFF;
-      --clr-text:             #2B1F14;
-      --clr-text-secondary:   #6B5A48;
-      --clr-text-muted:       #9B8A78;
-      --clr-border:           #E8DFD5;
+      --clr-text:             #2B1A3E;
+      --clr-text-secondary:   #6B5A7A;
+      --clr-text-muted:       #9B8AAA;
+      --clr-border:           #E0D6EB;
       --ff-heading: 'Playfair Display', Georgia, serif;
-      --ff-body:    'Nunito', system-ui, sans-serif;
+      --ff-body:    'Quicksand', system-ui, sans-serif;
       --radius-sm:  0.375rem;
       --radius-md:  0.75rem;
       --radius-lg:  1.25rem;
       --radius-full: 9999px;
-      --shadow-sm:  0 1px 3px rgba(232,145,58,.08), 0 1px 2px rgba(232,145,58,.04);
-      --shadow-md:  0 4px 16px rgba(232,145,58,.10), 0 2px 6px rgba(232,145,58,.06);
+      --shadow-sm:  0 1px 3px rgba(107,63,160,.08), 0 1px 2px rgba(107,63,160,.04);
+      --shadow-md:  0 4px 16px rgba(107,63,160,.10), 0 2px 6px rgba(107,63,160,.06);
       --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
       --sidebar-w: 260px;
@@ -43,7 +43,7 @@
     img { display: block; max-width: 100%; }
 
     /* SIDEBAR */
-    .admin-sidebar { width: var(--sidebar-w); background: #2B1F14; color: rgba(255,255,255,0.75); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 100; transition: transform var(--transition); }
+    .admin-sidebar { width: var(--sidebar-w); background: #2B1A3E; color: rgba(255,255,255,0.75); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 100; transition: transform var(--transition); }
     .sidebar-brand { padding: 1.5rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 0.75rem; }
     .sidebar-brand-logo { width: 38px; height: 38px; border-radius: 50%; background: var(--clr-primary-subtle); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
     .sidebar-brand-text { font-family: var(--ff-heading); font-size: 0.9rem; font-weight: 700; color: white; line-height: 1.25; }
@@ -692,7 +692,7 @@
     const topbar = document.querySelector('.admin-topbar');
     if (main && topbar) {
       main.addEventListener('scroll', () => {
-        topbar.style.boxShadow = main.scrollTop > 4 ? '0 4px 16px rgba(232,145,58,.10)' : '';
+        topbar.style.boxShadow = main.scrollTop > 4 ? '0 4px 16px rgba(107,63,160,.10)' : '';
       });
     }
 
