@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nori and Panko home service veterinary offerings: home vaccination, wellness consultations, spay and neuter (kapon), grooming, emergency visits, and senior pet care across the Philippines.">
+  <meta name="keywords" content="home service vet Philippines services, mobile vet vaccination, kapon spay neuter home service, pet grooming home, senior pet care Philippines">
+  <meta property="og:title" content="Our Services | Nori and Panko Home Service Veterinarian">
+  <meta property="og:description" content="Professional home veterinary services for dogs and cats across the Philippines. Vaccination, consultation, spay/neuter, and more — all at your doorstep.">
+  <title>Our Services | Nori and Panko Home Service Veterinarian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --clr-primary: #E8913A; --clr-primary-dark: #C97A2E; --clr-primary-light: #F2B06A;
+      --clr-primary-subtle: #FFF8F0; --clr-secondary: #6B8F71; --clr-secondary-subtle: #F0F5F1;
+      --clr-accent: #D4638F; --clr-peach: #FDE8D0; --clr-bg: #FFFAF5; --clr-bg-alt: #FFF3E6;
+      --clr-surface: #FFFFFF; --clr-text: #2B1F14; --clr-text-secondary: #6B5A48;
+      --clr-text-muted: #9B8A78; --clr-border: #E8DFD5;
+      --ff-heading: 'Playfair Display', Georgia, serif; --ff-body: 'Nunito', system-ui, sans-serif;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1.25rem; --radius-xl: 2rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(232,145,58,.08); --shadow-md: 0 4px 16px rgba(232,145,58,.10);
+      --shadow-lg: 0 12px 40px rgba(232,145,58,.14); --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--ff-body); font-size: 1rem; line-height: 1.7; color: var(--clr-text); background: var(--clr-bg); }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+    .section { padding-block: 5rem; }
+    .section-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-subtle); border: 1px solid rgba(232,145,58,.2); border-radius: var(--radius-full); padding: 0.35rem 1rem; margin-bottom: 1.25rem; }
+    .section-title { font-family: var(--ff-heading); font-size: clamp(1.75rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.22; color: var(--clr-text); margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--clr-text-secondary); max-width: 600px; line-height: 1.75; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--ff-body); font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-full); padding: 0.85rem 2rem; transition: all var(--transition); white-space: nowrap; text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+    .btn-primary { background: var(--clr-primary); color: #fff; border-color: var(--clr-primary); }
+    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,145,58,.35); }
+    .btn-secondary { background: transparent; color: var(--clr-primary); border-color: var(--clr-primary); }
+    .btn-secondary:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
+    .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
+    .btn-white { background: #fff; color: var(--clr-primary-dark); border-color: #fff; }
+    .btn-white:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,245,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--clr-border); transition: box-shadow var(--transition); }
+    .nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-container { display: flex; align-items: center; gap: 2rem; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-icon { width: 40px; height: 40px; background: var(--clr-primary-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; margin-left: auto; }
+    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--clr-text-secondary); text-decoration: none; padding: 0.5rem 0.875rem; border-radius: var(--radius-full); transition: all var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; margin-left: 1rem; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; border-radius: var(--radius-sm); cursor: pointer; background: none; border: none; margin-left: auto; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--clr-text); border-radius: 2px; transition: all var(--transition); }
+    .nav-mobile-menu { display: none; padding: 1.25rem 1.5rem 1.5rem; border-top: 1px solid var(--clr-border); background: rgba(255,250,245,.97); }
+    .nav-mobile-menu.open { display: block; }
+    @media (max-width: 768px) { .nav-links, .nav-actions { display: none; } .nav-toggle { display: flex; } }
+
+    /* PAGE HERO */
+    .page-hero { background: linear-gradient(135deg, var(--clr-primary-subtle) 0%, #fff 60%, #f5f8f2 100%); padding: 4rem 0 3.5rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(232,145,58,.08) 0%, transparent 70%); border-radius: 50%; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--clr-primary); }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--clr-border); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clr-primary); background: white; border: 1px solid rgba(232,145,58,.25); border-radius: var(--radius-full); padding: 0.4rem 1.1rem; margin-top: 1.5rem; box-shadow: var(--shadow-sm); }
+
+    /* TABS */
+    .services-tabs-wrap { position: sticky; top: 72px; z-index: 900; background: rgba(255,250,245,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--clr-border); box-shadow: 0 2px 8px rgba(232,145,58,.06); }
+    .services-tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .services-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { flex-shrink: 0; font-family: var(--ff-body); font-size: 0.875rem; font-weight: 600; color: var(--clr-text-secondary); background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+    .tab-btn:hover { color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .tab-btn.active { color: var(--clr-primary); border-bottom-color: var(--clr-primary); font-weight: 700; }
+
+    /* SERVICE SECTIONS */
+    .service-section { padding: 5rem 0; border-bottom: 1px solid var(--clr-border); }
+    .service-section:last-of-type { border-bottom: none; }
+    .service-section:nth-child(even) { background: var(--clr-bg-alt); }
+    .service-section-header { margin-bottom: 3rem; }
+
+    /* SERVICE CARDS */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .services-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .service-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 1.75rem; display: flex; flex-direction: column; transition: all var(--transition); position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--clr-primary); opacity: 0; transition: opacity var(--transition); }
+    .service-card:hover { border-color: rgba(232,145,58,.3); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; line-height: 1; }
+    .service-category-tag { display: inline-flex; align-items: center; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.7rem; border-radius: var(--radius-full); margin-bottom: 0.75rem; width: fit-content; }
+    .tag-home { background: #FFF8F0; color: var(--clr-primary); border: 1px solid rgba(232,145,58,.2); }
+    .tag-wellness { background: #F0F5F1; color: var(--clr-secondary); border: 1px solid rgba(107,143,113,.2); }
+    .tag-surgery { background: #F5F0FF; color: #6B4FA0; border: 1px solid rgba(107,79,160,.2); }
+    .tag-grooming { background: #FFF0F5; color: #A03060; border: 1px solid rgba(160,48,96,.2); }
+    .tag-emergency { background: #FFF5F0; color: #C0613F; border: 1px solid rgba(192,97,63,.2); }
+    .tag-senior { background: #FFFBEE; color: #8A6B00; border: 1px solid rgba(138,107,0,.2); }
+    .service-card h3 { font-family: var(--ff-heading); font-size: 1.1rem; font-weight: 700; color: var(--clr-text); margin-bottom: 0.625rem; line-height: 1.3; }
+    .service-card p { font-size: 0.9rem; color: var(--clr-text-secondary); line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+    .service-price { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--clr-border); margin-top: auto; gap: 0.75rem; }
+    .price-label { font-size: 0.8rem; color: var(--clr-text-muted); font-weight: 500; }
+    .price-value { font-size: 0.9rem; font-weight: 700; color: var(--clr-primary-dark); }
+    .service-card .btn { margin-top: 1rem; font-size: 0.82rem; padding: 0.55rem 1.1rem; width: 100%; justify-content: center; }
+
+    /* DISCLAIMER */
+    .pricing-disclaimer { background: #FFFDF0; border: 1px solid #E8D85A; border-left: 4px solid #D4B800; border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin: 3rem 0; font-size: 0.9rem; color: #5A4A00; line-height: 1.65; }
+
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: rgba(255,255,255,.05); border-radius: 50%; }
+    .cta-section h2 { font-family: var(--ff-heading); font-size: clamp(1.75rem, 3vw, 2.4rem); font-weight: 700; color: white; margin-bottom: 1rem; position: relative; z-index: 1; }
+    .cta-section p { font-size: 1.05rem; color: rgba(255,255,255,.85); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.75; position: relative; z-index: 1; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* FOOTER */
+    .footer { background: var(--clr-primary-dark); color: rgba(255,255,255,0.75); padding-top: 4.5rem; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-logo-name { font-family: var(--ff-heading); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem; }
+    .footer-tagline { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,.65); margin-bottom: 1.5rem; }
+    .footer-social { display: flex; gap: 0.75rem; }
+    .footer-social a { width: 38px; height: 38px; border-radius: var(--radius-md); background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); transition: all var(--transition); border: 1px solid rgba(255,255,255,.1); }
+    .footer-social a:hover { background: rgba(255,255,255,.18); color: #fff; transform: translateY(-2px); }
+    .footer-heading { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 1.25rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,.65); transition: color var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-contact-item { font-size: 0.85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-block: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom a { color: rgba(255,255,255,.5); transition: color var(--transition); }
+    .footer-bottom a:hover { color: rgba(255,255,255,.9); }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; } }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .services-grid, .services-grid-2 { grid-template-columns: 1fr; } .service-section { padding: 3.5rem 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐾</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#2B1F14;line-height:1.2;">Nori and Panko</div>
+          <div style="font-size:0.68rem;color:#E8913A;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;">Home Vet Service</div>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="booking.html" class="btn btn-primary btn-sm">Book a Visit</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:0.25rem;">
+        <li><a href="index.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:600;color:#6B5A48;border-radius:0.375rem;">Home</a></li>
+        <li><a href="about.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:600;color:#6B5A48;border-radius:0.375rem;">About</a></li>
+        <li><a href="services.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:700;color:#E8913A;border-radius:0.375rem;">Services</a></li>
+        <li><a href="blog.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:600;color:#6B5A48;border-radius:0.375rem;">Blog</a></li>
+        <li><a href="faq.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:600;color:#6B5A48;border-radius:0.375rem;">FAQ</a></li>
+        <li><a href="contact.html" style="display:block;padding:0.7rem 1rem;font-size:0.95rem;font-weight:600;color:#6B5A48;border-radius:0.375rem;">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">Book a Home Visit</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Services</span>
+      </nav>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;line-height:1.2;color:#2B1F14;max-width:680px;margin-bottom:1.25rem;">
+        Everything Your Pet Needs,<br>Delivered to Your Door
+      </h1>
+      <p style="font-size:1.1rem;color:#6B5A48;max-width:580px;line-height:1.75;">
+        From routine vaccines to spay/neuter procedures, our home service veterinary team brings professional, compassionate care straight to you — no clinic trips required.
+      </p>
+      <div class="hero-badge">
+        <span>Philippines-wide</span>
+        <span style="color:#E8DFD5;">|</span>
+        <span>Dogs &amp; Cats</span>
+        <span style="color:#E8DFD5;">|</span>
+        <span>By appointment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div class="services-tabs-wrap" id="servicesTabs">
+    <div class="container">
+      <nav class="services-tabs" role="tablist" aria-label="Service categories">
+        <button class="tab-btn active" data-target="all">All Services</button>
+        <button class="tab-btn" data-target="vaccination">Vaccination</button>
+        <button class="tab-btn" data-target="consultation">Consultation</button>
+        <button class="tab-btn" data-target="kapon">Spay &amp; Neuter</button>
+        <button class="tab-btn" data-target="grooming">Grooming</button>
+        <button class="tab-btn" data-target="emergency">Emergency</button>
+        <button class="tab-btn" data-target="senior">Senior Care</button>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- SECTION 1: VACCINATION -->
+    <section class="service-section" id="vaccination">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge">Vaccination</span>
+          <h2 class="section-title">Home Vaccination Services</h2>
+          <p class="section-subtitle">Core and non-core vaccines administered safely at home by our licensed veterinarians — no clinic stress for you or your pet.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">💉</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Core Dog Vaccines</h3>
+            <p>Distemper, Hepatitis, Parvovirus (DHP), and Rabies — the essential vaccines every dog needs, administered at home. We bring properly stored, high-quality vaccines to your door.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱800–₱1,200</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">🐱</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Core Cat Vaccines</h3>
+            <p>FVRCP (Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia) and Rabies. Complete protection for your cat without the stress of a carrier and clinic visit.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱800–₱1,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">🐶</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Puppy Vaccination Series</h3>
+            <p>A structured 3-visit home vaccination series starting at 6–8 weeks. Our team coordinates boosters and deworming so your puppy gets the best possible start in life.</p>
+            <div class="service-price">
+              <span class="price-label">Full series</span>
+              <span class="price-value">₱1,500–₱2,500</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🐈</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Kitten Vaccination Series</h3>
+            <p>Complete kitten vaccination starting at 8 weeks, with follow-up boosters at home. We set your kitten up for a healthy, protected life from the very beginning.</p>
+            <div class="service-price">
+              <span class="price-label">Full series</span>
+              <span class="price-value">₱1,200–₱2,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">🛡️</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Non-Core / Lifestyle Vaccines</h3>
+            <p>Bordetella (kennel cough), Leptospirosis, Feline Leukemia, and more — recommended based on your pet's exposure risk and lifestyle. We'll advise you on which apply.</p>
+            <div class="service-price">
+              <span class="price-label">Per vaccine</span>
+              <span class="price-value">₱400–₱800</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">📋</div>
+            <span class="service-category-tag tag-home">Home Service</span>
+            <h3>Vaccination Records &amp; Booklets</h3>
+            <p>Official vaccination booklets issued for every immunized pet. Required for travel, boarding, and grooming facilities. We provide complete, accurate records after every visit.</p>
+            <div class="service-price">
+              <span class="price-label">Cost</span>
+              <span class="price-value">Included</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CONSULTATION -->
+    <section class="service-section" id="consultation" style="background:var(--clr-bg-alt);">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge" style="background:var(--clr-secondary-subtle);color:var(--clr-secondary);border-color:rgba(107,143,113,.2);">Wellness Consultation</span>
+          <h2 class="section-title">Comprehensive Wellness Consultations</h2>
+          <p class="section-subtitle">Full head-to-tail health assessments performed by our licensed veterinarians in the comfort of your home. Catch issues early and keep your pet thriving.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">🩺</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Annual Wellness Exam</h3>
+            <p>A complete physical examination assessing your pet's overall health — weight, coat, dental health, ears, eyes, lymph nodes, and organ systems. Our most popular home visit service.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱600–₱800</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">🍽️</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Nutritional Counseling</h3>
+            <p>Personalized dietary recommendations based on your pet's age, breed, weight, and health status. Good nutrition is foundational to everything — we help you get it right.</p>
+            <div class="service-price">
+              <span class="price-label">Cost</span>
+              <span class="price-value">Included with exam</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">🦷</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Dental Health Assessment</h3>
+            <p>Oral health affects your pet's entire body. We check teeth, gums, and jaw alignment and provide advice on at-home dental care routines tailored to your pet.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱300–₱500</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🐛</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Deworming &amp; Parasite Control</h3>
+            <p>Regular deworming is essential for Philippine pets. We administer safe, effective dewormers and advise on flea, tick, and heartworm prevention schedules appropriate for your pet.</p>
+            <div class="service-price">
+              <span class="price-label">Per session</span>
+              <span class="price-value">₱200–₱450</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">💊</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Medication Administration</h3>
+            <p>For pets requiring injectable medications, fluids, or treatments that need professional administration. Our team ensures correct dosing and technique every time.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱300–₱800</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">🩹</div>
+            <span class="service-category-tag tag-wellness">Wellness</span>
+            <h3>Wound Care &amp; Dressing</h3>
+            <p>Professional cleaning, disinfection, and bandaging of minor cuts, scrapes, and lacerations — performed at home with proper sterile technique.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱500–₱1,200</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SPAY & NEUTER -->
+    <section class="service-section" id="kapon">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge" style="background:#F5F0FF;color:#6B4FA0;border-color:rgba(107,79,160,.2);">Spay &amp; Neuter (Kapon)</span>
+          <h2 class="section-title">Safe Spay &amp; Neuter at Home</h2>
+          <p class="section-subtitle">Our team performs safe, professional spay and neuter procedures for dogs and cats, with strict sterile protocols and compassionate post-op care — all at your home.</p>
+        </div>
+        <div class="services-grid services-grid-2" style="grid-template-columns:repeat(2,1fr);">
+          <div class="service-card reveal">
+            <div class="service-icon">✂️</div>
+            <span class="service-category-tag tag-surgery">Surgery</span>
+            <h3>Female Dog Spay (OHE)</h3>
+            <p>Ovariohysterectomy (OHE) performed with proper anesthesia, sterile instruments, and post-op monitoring. We provide complete pre- and post-operative care instructions and follow-up support.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱2,500–₱5,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">✂️</div>
+            <span class="service-category-tag tag-surgery">Surgery</span>
+            <h3>Male Dog Neuter (Castration)</h3>
+            <p>Orchiectomy (castration) for male dogs, reducing risk of testicular cancer and behavioral issues. Performed safely at home with full anesthetic protocol and recovery monitoring.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱1,500–₱3,500</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🐱</div>
+            <span class="service-category-tag tag-surgery">Surgery</span>
+            <h3>Female Cat Spay</h3>
+            <p>Safe, professional spaying for female cats including proper anesthesia, sterile technique, and post-op care guidance. Prevents heat cycles, unwanted pregnancy, and reduces cancer risk.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱1,500–₱3,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">🐱</div>
+            <span class="service-category-tag tag-surgery">Surgery</span>
+            <h3>Male Cat Neuter</h3>
+            <p>Quick, effective neutering for male cats reducing spraying, roaming, and aggression. One of our most requested services — done safely and professionally right at home.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱800–₱1,800</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+        </div>
+        <div class="pricing-disclaimer">
+          <strong>Note on surgical procedures:</strong> Spay and neuter pricing varies by pet size, weight, and health status. A pre-surgical health assessment is required before scheduling. Contact us or book a consultation first for accurate pricing.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GROOMING -->
+    <section class="service-section" id="grooming" style="background:var(--clr-bg-alt);">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge" style="background:#FFF0F5;color:#A03060;border-color:rgba(160,48,96,.2);">Grooming</span>
+          <h2 class="section-title">Home Pet Grooming</h2>
+          <p class="section-subtitle">Keep your pet looking and feeling their best with professional grooming in the comfort of home — no grooming salon stress required.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">🛁</div>
+            <span class="service-category-tag tag-grooming">Grooming</span>
+            <h3>Bath &amp; Blow Dry</h3>
+            <p>Professional bathing with breed-appropriate shampoo, conditioning, and blow-dry. Keeps your pet clean, fresh, and comfortable — without the smell of a grooming salon wafting through your home.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱500–₱1,500</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">✂️</div>
+            <span class="service-category-tag tag-grooming">Grooming</span>
+            <h3>Haircut &amp; Styling</h3>
+            <p>Breed-specific cuts and styling for dogs and cats. Our groomer understands coat types and breed standards, ensuring your pet comes out looking adorable without discomfort.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱800–₱2,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">💅</div>
+            <span class="service-category-tag tag-grooming">Grooming</span>
+            <h3>Nail Trimming &amp; Ear Cleaning</h3>
+            <p>Regular nail trims and ear cleaning are vital for your pet's comfort and health. Quick, gentle, and professionally done — we make these routine tasks stress-free.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱300–₱600</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EMERGENCY -->
+    <section class="service-section" id="emergency">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge" style="background:#FFF5F0;color:#C0613F;border-color:rgba(192,97,63,.2);">Emergency Visits</span>
+          <h2 class="section-title">Emergency Home Visits</h2>
+          <p class="section-subtitle">When your pet needs urgent attention and you can't get to a clinic, our team will come to you. Available for urgent situations — contact us immediately via Facebook.</p>
+        </div>
+        <div class="services-grid services-grid-2" style="grid-template-columns:repeat(2,1fr);">
+          <div class="service-card reveal">
+            <div class="service-icon">🚨</div>
+            <span class="service-category-tag tag-emergency">Emergency</span>
+            <h3>Urgent Consultation</h3>
+            <p>For sudden illness, injury, or concerning symptoms that need immediate professional assessment. We prioritize emergencies and aim to respond as quickly as possible to your location.</p>
+            <div class="service-price">
+              <span class="price-label">Pricing</span>
+              <span class="price-value">Contact us</span>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Contact for Emergency</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">💧</div>
+            <span class="service-category-tag tag-emergency">Emergency</span>
+            <h3>IV Fluids &amp; Stabilization</h3>
+            <p>Fluid therapy for dehydration, kidney support, or stabilizing a pet in distress before transport to a specialty hospital if needed. Our team comes equipped for critical situations.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱1,500–₱3,000</span>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Contact for Emergency</a>
+          </div>
+        </div>
+        <div style="background:#FFF5F0;border:1px solid rgba(192,97,63,.25);border-left:4px solid #C0613F;border-radius:var(--radius-md);padding:1.25rem 1.5rem;margin-top:2rem;font-size:0.9rem;color:#7A3A20;line-height:1.65;">
+          <strong>For life-threatening emergencies:</strong> Contact us via Facebook Messenger immediately at <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener noreferrer" style="color:#C0613F;">facebook.com/noriandoankoshop</a>. We will advise on the best course of action and dispatch a vet as quickly as possible.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SENIOR PET CARE -->
+    <section class="service-section" id="senior" style="background:var(--clr-bg-alt);">
+      <div class="container">
+        <div class="service-section-header reveal">
+          <span class="section-badge" style="background:#FFFBEE;color:#8A6B00;border-color:rgba(138,107,0,.2);">Senior Pet Care</span>
+          <h2 class="section-title">Specialized Care for Your Senior Pet</h2>
+          <p class="section-subtitle">Older pets have different needs — more frequent check-ups, gentler handling, and a closer eye on health changes. Our team is specially trained to care for your senior companions.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">🐕</div>
+            <span class="service-category-tag tag-senior">Senior Care</span>
+            <h3>Senior Wellness Exam</h3>
+            <p>Comprehensive assessment for pets 7+ years old, including joint health, organ function assessment, dental evaluation, and early detection screening for age-related conditions.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱700–₱1,000</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="100">
+            <div class="service-icon">❤️</div>
+            <span class="service-category-tag tag-senior">Senior Care</span>
+            <h3>Pain Management Consultation</h3>
+            <p>For senior pets experiencing arthritis, mobility issues, or chronic pain. Our team assesses their comfort and develops a management plan to maximize quality of life in their golden years.</p>
+            <div class="service-price">
+              <span class="price-label">Starting from</span>
+              <span class="price-value">₱600–₱900</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+          <div class="service-card reveal" data-delay="200">
+            <div class="service-icon">🍎</div>
+            <span class="service-category-tag tag-senior">Senior Care</span>
+            <h3>Senior Nutrition Guidance</h3>
+            <p>Diet plays a critical role in healthy aging. We provide tailored nutritional guidance for senior pets, including supplements, feeding schedules, and weight management strategies.</p>
+            <div class="service-price">
+              <span class="price-label">Cost</span>
+              <span class="price-value">Included with exam</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready for a Home Vet Visit?</h2>
+        <p>Book any of our services online in minutes. We'll come to you, fully equipped and ready to give your pet the best care possible.</p>
+        <div class="cta-actions">
+          <a href="booking.html" class="btn btn-white">Book a Visit Now</a>
+          <a href="contact.html" class="btn btn-secondary" style="border-color:rgba(255,255,255,.5);color:#fff;">Ask a Question</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-name">🐾 Nori and Panko</div>
+          <p class="footer-tagline">Experience the ease of pet care at your doorstep. Your trusted home service veterinarian team in the Philippines.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a><a href="about.html">About Us</a>
+            <a href="services.html">Services</a><a href="booking.html">Book a Visit</a>
+            <a href="blog.html">Blog</a><a href="faq.html">FAQ</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <div class="footer-links">
+            <a href="#vaccination">Home Vaccination</a><a href="#consultation">Wellness Consultation</a>
+            <a href="#kapon">Spay &amp; Neuter</a><a href="#grooming">Pet Grooming</a>
+            <a href="#emergency">Emergency Visits</a><a href="#senior">Senior Pet Care</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-contact">
+            <div class="footer-contact-item"><strong style="color:rgba(255,255,255,.75);">Facebook</strong><a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.65);">facebook.com/noriandoankoshop</a></div>
+            <div class="footer-contact-item"><strong style="color:rgba(255,255,255,.75);">Serving</strong> Metro Manila &amp; nearby provinces</div>
+            <div class="footer-contact-item"><strong style="color:rgba(255,255,255,.75);">Hours</strong> Mon–Sat, 8:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Nori and Panko Home Service Veterinarian. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Services tab filter
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.service-section');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.target;
+        if (target === 'all') {
+          sections.forEach(s => s.style.display = '');
+        } else {
+          sections.forEach(s => {
+            s.style.display = s.id === target ? '' : 'none';
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

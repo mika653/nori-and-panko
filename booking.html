@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a home visit with Nori and Panko Home Service Veterinarian. Fill in your pet's details, choose a service, pick a date and time, and confirm with secure payment.">
+  <meta name="keywords" content="book home vet Philippines, schedule mobile vet visit, online pet booking Philippines, Nori and Panko appointment, home vaccination booking">
+  <meta property="og:title" content="Book a Home Visit | Nori and Panko Home Service Vet">
+  <meta property="og:description" content="Simple, secure online booking for home veterinary visits. Choose your service, pick a time, and confirm payment — all in one place.">
+  <meta property="og:type" content="website">
+  <title>Book a Home Visit | Nori and Panko Home Service Veterinarian</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VeterinaryCare",
+    "name": "Nori and Panko Home Service Veterinarian",
+    "description": "Home service veterinary care for pets across the Philippines. Vaccination, consultation, and spay/neuter at your doorstep.",
+    "url": "https://noriandpanko.com",
+    "sameAs": ["https://facebook.com/noriandoankoshop"],
+    "serviceType": "Mobile Veterinary Care",
+    "areaServed": "Philippines",
+    "priceRange": "₱₱"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ─────────────────────────────────────────────
+       DESIGN TOKENS — Nori and Panko Warm Palette
+    ───────────────────────────────────────────── */
+    :root {
+      --clr-primary:          #E8913A;
+      --clr-primary-dark:     #C97A2E;
+      --clr-primary-light:    #F2B06A;
+      --clr-primary-subtle:   #FFF8F0;
+      --clr-secondary:        #6B8F71;
+      --clr-secondary-subtle: #F0F5F1;
+      --clr-accent:           #D4638F;
+      --clr-peach:            #FDE8D0;
+      --clr-bg:               #FFFAF5;
+      --clr-bg-alt:           #FFF3E6;
+      --clr-surface:          #FFFFFF;
+      --clr-text:             #2B1F14;
+      --clr-text-secondary:   #6B5A48;
+      --clr-text-muted:       #9B8A78;
+      --clr-border:           #E8DFD5;
+
+      --ff-heading: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Nunito', system-ui, sans-serif;
+
+      --radius-sm:  0.375rem;
+      --radius-md:  0.75rem;
+      --radius-lg:  1.25rem;
+      --radius-full: 9999px;
+
+      --shadow-sm:  0 1px 3px rgba(232,145,58,.08), 0 1px 2px rgba(232,145,58,.04);
+      --shadow-md:  0 4px 16px rgba(232,145,58,.10), 0 2px 6px rgba(232,145,58,.06);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--ff-body); font-size: 1rem; line-height: 1.7; color: var(--clr-text); background: var(--clr-bg); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--ff-body); font-size: 0.95rem; font-weight: 600; border-radius: var(--radius-full); padding: 0.85rem 2rem; transition: all var(--transition); white-space: nowrap; text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+    .btn-primary { background: var(--clr-primary); color: #fff; border-color: var(--clr-primary); }
+    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,145,58,.35); }
+    .btn-secondary { background: transparent; color: var(--clr-primary); border-color: var(--clr-primary); }
+    .btn-secondary:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
+    .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
+    .btn-lg { padding: 1rem 2.5rem; font-size: 1.05rem; }
+    .btn-back { background: var(--clr-bg-alt); color: var(--clr-text-secondary); border-color: var(--clr-border); }
+    .btn-back:hover { background: var(--clr-border); color: var(--clr-text); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,245,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--clr-border); transition: box-shadow var(--transition); }
+    .nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-container { display: flex; align-items: center; gap: 2rem; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; margin-left: auto; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--clr-text-secondary); text-decoration: none; padding: 0.5rem 0.875rem; border-radius: var(--radius-full); transition: all var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; margin-left: 1rem; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; cursor: pointer; background: none; border: none; margin-left: auto; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--clr-text); border-radius: 2px; transition: all var(--transition); }
+    .nav-mobile-menu { display: none; padding: 1.25rem 1.5rem 1.5rem; border-top: 1px solid var(--clr-border); background: rgba(255,250,245,.97); }
+    .nav-mobile-menu.open { display: block; }
+
+    /* PAGE HERO */
+    .page-hero { background: linear-gradient(135deg, var(--clr-primary-subtle) 0%, #fff 60%); padding: 3.5rem 0 3rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(232,145,58,.07) 0%, transparent 70%); border-radius: 50%; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: var(--clr-primary); background: white; border: 1px solid rgba(232,145,58,.25); border-radius: var(--radius-full); padding: 0.4rem 1.1rem; margin-top: 1.25rem; box-shadow: var(--shadow-sm); }
+
+    /* STEPPER */
+    .stepper-wrap { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 1.5rem 0; }
+    .stepper { display: flex; align-items: center; justify-content: center; max-width: 720px; margin: 0 auto; padding-inline: 1.5rem; }
+    .step-item { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; flex: 1; position: relative; }
+    .step-item:not(:last-child)::after { content: ''; position: absolute; top: 18px; left: calc(50% + 18px); right: calc(-50% + 18px); height: 2px; background: var(--clr-border); transition: background 0.3s; z-index: 0; }
+    .step-item.completed:not(:last-child)::after { background: var(--clr-secondary); }
+    .step-circle { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--clr-border); background: var(--clr-surface); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--clr-text-muted); transition: all 0.3s; z-index: 1; position: relative; }
+    .step-item.active .step-circle { border-color: var(--clr-primary); background: var(--clr-primary); color: white; }
+    .step-item.completed .step-circle { border-color: var(--clr-secondary); background: var(--clr-secondary); color: white; }
+    .step-label { font-size: 0.72rem; font-weight: 500; color: var(--clr-text-muted); text-align: center; white-space: nowrap; }
+    .step-item.active .step-label { color: var(--clr-primary); font-weight: 600; }
+    .step-item.completed .step-label { color: var(--clr-secondary); }
+
+    /* BOOKING LAYOUT */
+    .booking-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; padding: 3rem 0 5rem; align-items: start; }
+    .booking-form-panel { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .form-step { display: none; padding: 2.5rem; }
+    .form-step.active { display: block; }
+    .step-title { font-family: var(--ff-heading); font-size: 1.5rem; font-weight: 700; color: var(--clr-text); margin-bottom: 0.5rem; }
+    .step-subtitle { font-size: 0.9rem; color: var(--clr-text-secondary); margin-bottom: 2rem; }
+
+    /* FORM ELEMENTS */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 0.85rem; font-weight: 600; color: var(--clr-text); }
+    label .req { color: #C0613F; margin-left: 2px; }
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--ff-body); font-size: 0.9rem; color: var(--clr-text); background: var(--clr-surface); transition: border-color var(--transition), box-shadow var(--transition); outline: none; appearance: none; -webkit-appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--clr-primary); box-shadow: 0 0 0 3px rgba(232,145,58,.12); }
+    input.error, select.error, textarea.error { border-color: #C0613F; }
+    .field-error { font-size: 0.78rem; color: #C0613F; margin-top: 0.25rem; display: none; }
+    .field-error.show { display: block; }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B5A48' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    textarea { resize: vertical; min-height: 100px; }
+    .input-hint { font-size: 0.78rem; color: var(--clr-text-muted); }
+
+    /* RADIO PILLS */
+    .radio-group { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .radio-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; border: 1.5px solid var(--clr-border); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all var(--transition); color: var(--clr-text-secondary); user-select: none; }
+    .radio-pill:hover { border-color: var(--clr-primary-light); }
+    .radio-pill.selected { border-color: var(--clr-primary); background: var(--clr-primary-subtle); color: var(--clr-primary); }
+    .radio-pill input[type="radio"] { display: none; }
+
+    /* SERVICE SELECTION */
+    .services-select-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; margin-bottom: 1.5rem; }
+    .service-option { border: 1.5px solid var(--clr-border); border-radius: var(--radius-md); padding: 1rem 1.1rem; cursor: pointer; transition: all var(--transition); display: flex; flex-direction: column; gap: 0.25rem; position: relative; background: var(--clr-surface); }
+    .service-option:hover { border-color: var(--clr-primary-light); background: var(--clr-primary-subtle); }
+    .service-option.selected { border-color: var(--clr-primary); background: var(--clr-primary-subtle); box-shadow: 0 0 0 3px rgba(232,145,58,.12); }
+    .service-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .svc-check { position: absolute; top: 0.75rem; right: 0.75rem; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--clr-border); background: white; display: flex; align-items: center; justify-content: center; transition: all var(--transition); }
+    .service-option.selected .svc-check { border-color: var(--clr-primary); background: var(--clr-primary); }
+    .service-option.selected .svc-check::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; display: block; }
+    .svc-icon { font-size: 1.4rem; margin-bottom: 0.25rem; }
+    .svc-name { font-size: 0.875rem; font-weight: 600; color: var(--clr-text); line-height: 1.3; }
+    .svc-price { font-size: 0.78rem; color: var(--clr-text-muted); }
+
+    /* ALERTS */
+    .alert { border-radius: var(--radius-md); padding: 1rem 1.25rem; font-size: 0.875rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .alert-info { background: var(--clr-primary-subtle); border: 1px solid rgba(232,145,58,.2); color: var(--clr-primary-dark); }
+    .alert-warn { background: #FFF5F0; border: 1px solid rgba(192,97,63,.25); color: #7A3A20; }
+
+    /* CALENDAR */
+    .calendar-wrap { border: 1.5px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--clr-primary-subtle); border-bottom: 1px solid var(--clr-border); }
+    .cal-nav { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(232,145,58,.3); background: white; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; color: var(--clr-primary); transition: all var(--transition); }
+    .cal-nav:hover { background: var(--clr-primary); color: white; }
+    .cal-month-year { font-family: var(--ff-heading); font-size: 1.05rem; font-weight: 700; color: var(--clr-text); }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+    .cal-day-hdr { text-align: center; padding: 0.6rem 0; font-size: 0.72rem; font-weight: 700; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: #FDFAF5; border-bottom: 1px solid var(--clr-border); }
+    .cal-cell { text-align: center; padding: 0.625rem 0; font-size: 0.875rem; cursor: pointer; color: var(--clr-text); transition: all var(--transition); }
+    .cal-cell:hover:not(.disabled) { background: var(--clr-primary-subtle); color: var(--clr-primary); }
+    .cal-cell.selected { background: var(--clr-primary); color: white; font-weight: 700; }
+    .cal-cell.today { font-weight: 700; color: var(--clr-primary); }
+    .cal-cell.disabled { color: #D0C0B0; cursor: not-allowed; }
+
+    /* TIME SLOTS */
+    .time-section { display: none; animation: fadeIn 0.3s ease; }
+    .time-section.visible { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .time-group-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--clr-text-muted); margin: 1.25rem 0 0.75rem; }
+    .time-slots { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .time-slot { padding: 0.5rem 0.9rem; border: 1.5px solid var(--clr-border); border-radius: var(--radius-full); font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all var(--transition); color: var(--clr-text-secondary); background: var(--clr-surface); }
+    .time-slot:hover:not(.booked) { border-color: var(--clr-primary); color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .time-slot.selected { background: var(--clr-primary); color: white; border-color: var(--clr-primary); font-weight: 600; }
+    .time-slot.booked { background: var(--clr-bg-alt); color: var(--clr-text-muted); cursor: not-allowed; text-decoration: line-through; font-size: 0.78rem; }
+
+    /* CHECKBOXES */
+    .checkbox-group { display: flex; flex-direction: column; gap: 0.75rem; }
+    .check-item { display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; }
+    .check-item input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--clr-primary); flex-shrink: 0; cursor: pointer; }
+    .check-item span { font-size: 0.875rem; color: var(--clr-text-secondary); line-height: 1.55; }
+    .check-item a { color: var(--clr-primary); text-decoration: underline; }
+
+    /* STEP ACTIONS */
+    .step-actions { display: flex; gap: 0.875rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--clr-border); }
+
+    /* PAYMENT */
+    .payment-methods { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem; }
+    .pay-option { border: 1.5px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; transition: border-color var(--transition); }
+    .pay-option.selected { border-color: var(--clr-primary); }
+    .pay-option-header { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; cursor: pointer; }
+    .pay-option input[type="radio"] { accent-color: var(--clr-primary); width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; }
+    .pay-label { font-size: 0.95rem; font-weight: 600; color: var(--clr-text); }
+    .pay-sublabel { font-size: 0.8rem; color: var(--clr-text-muted); margin-left: auto; }
+    .pay-details { display: none; padding: 1.25rem 1.5rem; border-top: 1px solid var(--clr-border); background: #FDFAF8; }
+    .pay-option.selected .pay-details { display: block; }
+    .qr-box { width: 176px; height: 176px; background: #F5F0EA; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; border: 1px dashed var(--clr-border); margin-bottom: 1rem; }
+    .qr-box span { font-size: 0.72rem; color: var(--clr-text-muted); }
+    .pay-info-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--clr-border); font-size: 0.875rem; }
+    .pay-info-row:last-child { border-bottom: none; }
+    .pay-info-row .pk { color: var(--clr-text-muted); }
+    .pay-info-row .pv { font-weight: 600; color: var(--clr-text); }
+    .ref-code { display: inline-block; background: var(--clr-primary-subtle); border: 1px solid rgba(232,145,58,.25); border-radius: var(--radius-sm); padding: 0.2rem 0.6rem; font-size: 0.875rem; font-weight: 700; color: var(--clr-primary); font-family: monospace; letter-spacing: 0.05em; }
+    .pay-steps { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .pay-step { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.875rem; color: var(--clr-text-secondary); }
+    .pay-step-n { width: 22px; height: 22px; border-radius: 50%; background: var(--clr-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* BOOKING SUMMARY BOX */
+    .bsummary { background: var(--clr-primary-subtle); border: 1px solid rgba(232,145,58,.2); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.75rem; }
+    .bsummary h4 { font-family: var(--ff-heading); font-size: 1rem; font-weight: 700; color: var(--clr-text); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(232,145,58,.15); }
+    .bsum-row { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.875rem; }
+    .bsum-row .bk { color: var(--clr-text-muted); }
+    .bsum-row .bv { font-weight: 600; color: var(--clr-text); max-width: 200px; text-align: right; word-break: break-word; }
+    .bsum-divider { border: none; border-top: 1px solid rgba(232,145,58,.15); margin: 0.75rem 0; }
+    .bsum-status { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600; color: #8A6B00; }
+
+    /* FILE UPLOAD */
+    .upload-area { border: 2px dashed var(--clr-border); border-radius: var(--radius-lg); padding: 2rem; text-align: center; cursor: pointer; transition: all var(--transition); background: var(--clr-surface); margin-top: 1.25rem; }
+    .upload-area:hover, .upload-area.drag-over { border-color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .upload-area.has-file { border-color: var(--clr-secondary); background: var(--clr-secondary-subtle); }
+    .upload-icon-el { font-size: 2rem; margin-bottom: 0.5rem; }
+    .upload-text { font-size: 0.9rem; font-weight: 600; color: var(--clr-text); margin-bottom: 0.25rem; }
+    .upload-hint-text { font-size: 0.8rem; color: var(--clr-text-muted); }
+    .upload-filename { font-size: 0.85rem; color: var(--clr-secondary); font-weight: 600; margin-top: 0.5rem; display: none; }
+    #fileInput { display: none; }
+
+    /* SIDEBAR SUMMARY */
+    .summary-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 1.75rem; position: sticky; top: calc(72px + 1.5rem); }
+    .summary-title { font-family: var(--ff-heading); font-size: 1.05rem; font-weight: 700; color: var(--clr-text); margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--clr-border); }
+    .summary-empty { text-align: center; padding: 1.5rem 0; color: var(--clr-text-muted); font-size: 0.875rem; line-height: 1.6; }
+    .summary-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid #F2EEE8; font-size: 0.875rem; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row .sk { color: var(--clr-text-muted); font-size: 0.8rem; flex-shrink: 0; }
+    .summary-row .sv { font-weight: 600; color: var(--clr-text); text-align: right; max-width: 170px; word-break: break-word; font-size: 0.875rem; }
+    .sum-fee-block { background: var(--clr-primary-subtle); border-radius: var(--radius-md); padding: 1rem; margin-top: 1rem; }
+    .sum-fee-row { display: flex; justify-content: space-between; font-size: 0.875rem; padding: 0.3rem 0; }
+    .sum-fee-row .fl { color: var(--clr-text-secondary); }
+    .sum-fee-row .fv { font-weight: 700; color: var(--clr-primary-dark); }
+    .status-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.875rem; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; margin-top: 1rem; }
+    .status-pending { background: #FFF8E6; color: #8A6B00; border: 1px solid #E8D85A; }
+    .status-payment { background: #FFF5F0; color: #C0613F; border: 1px solid rgba(192,97,63,.3); }
+    .status-confirmed { background: var(--clr-secondary-subtle); color: var(--clr-secondary); border: 1px solid rgba(107,143,113,.3); }
+    .sum-help { margin-top: 1.25rem; padding: 1rem; background: var(--clr-bg-alt); border-radius: var(--radius-md); font-size: 0.8rem; color: var(--clr-text-secondary); line-height: 1.55; }
+    .sum-help strong { color: var(--clr-text); display: block; margin-bottom: 0.25rem; }
+
+    /* SUCCESS STATE */
+    .booking-success { display: none; padding: 3rem 2.5rem; text-align: center; }
+    .booking-success.visible { display: block; }
+    .success-circle { width: 80px; height: 80px; border-radius: 50%; background: var(--clr-secondary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .success-ref { display: inline-block; background: var(--clr-primary-subtle); border: 1.5px solid rgba(232,145,58,.3); border-radius: var(--radius-md); padding: 0.75rem 1.5rem; font-family: monospace; font-size: 1.1rem; font-weight: 700; color: var(--clr-primary); letter-spacing: 0.1em; margin: 1rem 0 1.5rem; }
+    .status-timeline { text-align: left; max-width: 360px; margin: 1.5rem auto 2rem; display: flex; flex-direction: column; gap: 0.875rem; }
+    .tl-item { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; }
+    .tl-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+    .tl-done { background: var(--clr-secondary); color: white; }
+    .tl-pending { background: #FFF8E6; border: 2px solid #D4B800; color: #8A6B00; }
+    .tl-wait { background: var(--clr-bg-alt); border: 2px solid var(--clr-border); color: var(--clr-text-muted); }
+    .tl-text { color: var(--clr-text-secondary); }
+    .tl-text.done { color: var(--clr-text); font-weight: 500; }
+    .success-actions { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: #2B1F14; color: rgba(255,255,255,0.7); padding: 4rem 0 0; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) { .booking-layout { grid-template-columns: 1fr; } .summary-card { position: static; } }
+    @media (max-width: 768px) { .nav-links, .nav-actions { display: none; } .nav-toggle { display: flex; } .services-select-grid { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } .form-group.full { grid-column: 1; } .form-step { padding: 1.5rem; } .step-label { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="container nav-container">
+    <a href="index.html" class="nav-logo">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--clr-primary-subtle);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.25rem;">🐾</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--clr-text);line-height:1.2;">Nori and Panko</div>
+        <div style="font-size:0.7rem;color:var(--clr-text-muted);letter-spacing:0.08em;text-transform:uppercase;">Home Service Vet</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="booking.html" class="btn btn-primary btn-sm active">Book a Home Visit</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <ul style="list-style:none;padding:0;margin:0 0 1.5rem;">
+      <li style="border-bottom:1px solid var(--clr-border);padding:0.875rem 0;"><a href="index.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">Home</a></li>
+      <li style="border-bottom:1px solid var(--clr-border);padding:0.875rem 0;"><a href="about.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">About</a></li>
+      <li style="border-bottom:1px solid var(--clr-border);padding:0.875rem 0;"><a href="services.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">Services</a></li>
+      <li style="border-bottom:1px solid var(--clr-border);padding:0.875rem 0;"><a href="blog.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">Blog</a></li>
+      <li style="border-bottom:1px solid var(--clr-border);padding:0.875rem 0;"><a href="faq.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">FAQ</a></li>
+      <li style="padding:0.875rem 0;"><a href="contact.html" style="color:var(--clr-text);text-decoration:none;font-size:1.125rem;font-weight:500;">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">Book a Home Visit</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <nav aria-label="Breadcrumb" style="margin-bottom:1rem;">
+      <ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--clr-text-muted);">
+        <li><a href="index.html" style="color:var(--clr-primary);">Home</a></li>
+        <li style="opacity:.5;">/</li>
+        <li style="color:var(--clr-text-secondary);">Book a Home Visit</li>
+      </ol>
+    </nav>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;line-height:1.22;color:var(--clr-text);max-width:560px;margin-bottom:1rem;">Book Your Home Visit</h1>
+    <p style="font-size:1.05rem;color:var(--clr-text-secondary);max-width:520px;line-height:1.75;">Five easy steps. Our team comes to you — no travel stress for your pet, no clinic waiting rooms.</p>
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#E8913A" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#E8913A" stroke-width="2" stroke-linecap="round"/></svg>
+      Slot Secured After Payment Verification
+    </div>
+  </div>
+</section>
+
+<!-- STEPPER -->
+<div class="stepper-wrap">
+  <div class="stepper" id="stepper" role="list" aria-label="Booking steps">
+    <div class="step-item active" data-step="1" role="listitem"><div class="step-circle"><span class="step-num">1</span></div><span class="step-label">Pet Info</span></div>
+    <div class="step-item" data-step="2" role="listitem"><div class="step-circle"><span class="step-num">2</span></div><span class="step-label">Service</span></div>
+    <div class="step-item" data-step="3" role="listitem"><div class="step-circle"><span class="step-num">3</span></div><span class="step-label">Date &amp; Time</span></div>
+    <div class="step-item" data-step="4" role="listitem"><div class="step-circle"><span class="step-num">4</span></div><span class="step-label">Your Details</span></div>
+    <div class="step-item" data-step="5" role="listitem"><div class="step-circle"><span class="step-num">5</span></div><span class="step-label">Payment</span></div>
+  </div>
+</div>
+
+<!-- BOOKING BODY -->
+<div style="background:var(--clr-bg);">
+  <div class="container">
+    <div class="booking-layout">
+
+      <!-- FORM PANEL -->
+      <div class="booking-form-panel" id="formPanel">
+
+        <!-- STEP 1: PET INFO -->
+        <div class="form-step active" id="step1">
+          <h2 class="step-title">Tell us about your pet</h2>
+          <p class="step-subtitle">This helps our team prepare everything they need before your home visit.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="petName">Pet's Name <span class="req">*</span></label>
+              <input type="text" id="petName" placeholder="e.g. Nori, Panko, Mochi" autocomplete="off">
+              <span class="field-error" id="petNameErr">Please enter your pet's name.</span>
+            </div>
+            <div class="form-group">
+              <label for="petType">Pet Type <span class="req">*</span></label>
+              <select id="petType">
+                <option value="">Select animal type</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Guinea Pig">Guinea Pig</option>
+                <option value="Bird">Bird</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="field-error" id="petTypeErr">Please select a pet type.</span>
+            </div>
+            <div class="form-group">
+              <label for="petBreed">Breed <span style="color:var(--clr-text-muted);font-weight:400;">(optional)</span></label>
+              <input type="text" id="petBreed" placeholder="e.g. Shih Tzu, Puspin, Puspusa">
+            </div>
+            <div class="form-group">
+              <label for="petAge">Age <span class="req">*</span></label>
+              <select id="petAge">
+                <option value="">Select age range</option>
+                <option value="Under 6 months">Under 6 months</option>
+                <option value="6–12 months">6–12 months</option>
+                <option value="1–3 years">1–3 years</option>
+                <option value="3–7 years">3–7 years</option>
+                <option value="7+ years (Senior)">7+ years / Senior</option>
+              </select>
+              <span class="field-error" id="petAgeErr">Please select your pet's age range.</span>
+            </div>
+            <div class="form-group">
+              <label for="petSex">Sex <span class="req">*</span></label>
+              <select id="petSex">
+                <option value="">Select</option>
+                <option value="Male (Intact)">Male (Intact)</option>
+                <option value="Male (Neutered)">Male (Neutered / Kapon)</option>
+                <option value="Female (Intact)">Female (Intact)</option>
+                <option value="Female (Spayed)">Female (Spayed)</option>
+              </select>
+              <span class="field-error" id="petSexErr">Please select your pet's sex.</span>
+            </div>
+            <div class="form-group">
+              <label for="petWeight">Weight <span style="color:var(--clr-text-muted);font-weight:400;">(optional)</span></label>
+              <div style="position:relative;">
+                <input type="text" id="petWeight" placeholder="e.g. 4.5" style="padding-right:2.5rem;">
+                <span style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:0.8rem;color:var(--clr-text-muted);">kg</span>
+              </div>
+            </div>
+            <div class="form-group full">
+              <label for="petConditions">Known conditions or allergies <span style="color:var(--clr-text-muted);font-weight:400;">(optional)</span></label>
+              <textarea id="petConditions" placeholder="e.g. skin allergy, previous surgery, current medications, recent health concerns..."></textarea>
+            </div>
+            <div class="form-group full">
+              <label>Is this your first booking with us? <span class="req">*</span></label>
+              <div class="radio-group" id="firstVisitGroup">
+                <label class="radio-pill"><input type="radio" name="firstVisit" value="Yes"><span>Yes, first time</span></label>
+                <label class="radio-pill"><input type="radio" name="firstVisit" value="No"><span>No, returning client</span></label>
+              </div>
+              <span class="field-error" id="firstVisitErr">Please select an option.</span>
+            </div>
+            <div class="form-group full">
+              <label>Vaccination records available? <span class="req">*</span></label>
+              <div class="radio-group" id="vacRecordsGroup">
+                <label class="radio-pill"><input type="radio" name="vacRecords" value="Yes"><span>Yes, complete</span></label>
+                <label class="radio-pill"><input type="radio" name="vacRecords" value="No"><span>No records</span></label>
+                <label class="radio-pill"><input type="radio" name="vacRecords" value="Partial"><span>Partial</span></label>
+              </div>
+              <span class="field-error" id="vacRecordsErr">Please select an option.</span>
+            </div>
+          </div>
+          <div class="step-actions">
+            <button class="btn btn-primary" id="step1Next">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: SERVICE -->
+        <div class="form-step" id="step2">
+          <h2 class="step-title">What can we help with?</h2>
+          <p class="step-subtitle">Select the service that best matches your pet's needs. Our vet team will review before the visit.</p>
+          <div class="services-select-grid" id="serviceGrid">
+            <div class="service-option" data-service="Home Vaccination — Dogs" data-price="₱800–₱1,200">
+              <input type="radio" name="selectedService" value="Home Vaccination — Dogs">
+              <div class="svc-check"></div>
+              <div class="svc-icon">💉</div>
+              <div class="svc-name">Home Vaccination — Dogs</div>
+              <div class="svc-price">₱800–₱1,200</div>
+            </div>
+            <div class="service-option" data-service="Home Vaccination — Cats" data-price="₱800–₱1,000">
+              <input type="radio" name="selectedService" value="Home Vaccination — Cats">
+              <div class="svc-check"></div>
+              <div class="svc-icon">💉</div>
+              <div class="svc-name">Home Vaccination — Cats</div>
+              <div class="svc-price">₱800–₱1,000</div>
+            </div>
+            <div class="service-option" data-service="Puppy / Kitten Vaccine Series" data-price="₱1,200–₱2,500">
+              <input type="radio" name="selectedService" value="Puppy / Kitten Vaccine Series">
+              <div class="svc-check"></div>
+              <div class="svc-icon">🐣</div>
+              <div class="svc-name">Puppy / Kitten Vaccine Series</div>
+              <div class="svc-price">₱1,200–₱2,500</div>
+            </div>
+            <div class="service-option" data-service="Wellness Consultation" data-price="₱600–₱800">
+              <input type="radio" name="selectedService" value="Wellness Consultation">
+              <div class="svc-check"></div>
+              <div class="svc-icon">🩺</div>
+              <div class="svc-name">Wellness Consultation</div>
+              <div class="svc-price">₱600–₱800</div>
+            </div>
+            <div class="service-option" data-service="Deworming" data-price="₱200–₱450">
+              <input type="radio" name="selectedService" value="Deworming">
+              <div class="svc-check"></div>
+              <div class="svc-icon">💊</div>
+              <div class="svc-name">Deworming</div>
+              <div class="svc-price">₱200–₱450</div>
+            </div>
+            <div class="service-option" data-service="Spay / Neuter (Kapon)" data-price="₱2,500–₱6,000">
+              <input type="radio" name="selectedService" value="Spay / Neuter (Kapon)">
+              <div class="svc-check"></div>
+              <div class="svc-icon">✂️</div>
+              <div class="svc-name">Spay / Neuter (Kapon)</div>
+              <div class="svc-price">₱2,500–₱6,000</div>
+            </div>
+            <div class="service-option" data-service="Pet Grooming" data-price="₱350–₱1,200">
+              <input type="radio" name="selectedService" value="Pet Grooming">
+              <div class="svc-check"></div>
+              <div class="svc-icon">✂️</div>
+              <div class="svc-name">Pet Grooming</div>
+              <div class="svc-price">₱350–₱1,200</div>
+            </div>
+            <div class="service-option" data-service="Senior Pet Wellness Exam" data-price="₱700–₱1,000">
+              <input type="radio" name="selectedService" value="Senior Pet Wellness Exam">
+              <div class="svc-check"></div>
+              <div class="svc-icon">❤️</div>
+              <div class="svc-name">Senior Pet Wellness Exam</div>
+              <div class="svc-price">₱700–₱1,000</div>
+            </div>
+            <div class="service-option" data-service="Wound Care / Minor Procedure" data-price="₱500–₱3,000">
+              <input type="radio" name="selectedService" value="Wound Care / Minor Procedure">
+              <div class="svc-check"></div>
+              <div class="svc-icon">🩹</div>
+              <div class="svc-name">Wound Care / Minor Procedure</div>
+              <div class="svc-price">₱500–₱3,000</div>
+            </div>
+            <div class="service-option" data-service="Dental Assessment" data-price="₱300–₱500">
+              <input type="radio" name="selectedService" value="Dental Assessment">
+              <div class="svc-check"></div>
+              <div class="svc-icon">🦷</div>
+              <div class="svc-name">Dental Assessment</div>
+              <div class="svc-price">₱300–₱500</div>
+            </div>
+            <div class="service-option" data-service="Nutrition Counseling" data-price="₱400–₱600">
+              <input type="radio" name="selectedService" value="Nutrition Counseling">
+              <div class="svc-check"></div>
+              <div class="svc-icon">🥗</div>
+              <div class="svc-name">Nutrition Counseling</div>
+              <div class="svc-price">₱400–₱600</div>
+            </div>
+            <div class="service-option" data-service="Not Sure — Let the Vet Decide" data-price="₱500 consult">
+              <input type="radio" name="selectedService" value="Not Sure — Let the Vet Decide">
+              <div class="svc-check"></div>
+              <div class="svc-icon">❓</div>
+              <div class="svc-name">Not Sure — Let the Vet Decide</div>
+              <div class="svc-price">₱500 consultation</div>
+            </div>
+          </div>
+          <span class="field-error" id="serviceErr" style="display:none;margin-bottom:1rem;">Please select a service to continue.</span>
+          <div class="alert alert-info">
+            <strong>Consultation fee note:</strong> A <strong>₱500 consultation fee</strong> is required to confirm your booking. This is applied toward your total service cost on the day — it is not an extra charge.
+          </div>
+          <div class="form-group">
+            <label for="serviceNotes">Additional notes for our team <span style="color:var(--clr-text-muted);font-weight:400;">(optional)</span></label>
+            <textarea id="serviceNotes" placeholder="Any symptoms, concerns, or questions you'd like our vet team to know before the visit..."></textarea>
+          </div>
+          <div class="step-actions">
+            <button class="btn btn-back" id="step2Back">&larr; Back</button>
+            <button class="btn btn-primary" id="step2Next">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: DATE & TIME -->
+        <div class="form-step" id="step3">
+          <h2 class="step-title">Choose Your Preferred Schedule</h2>
+          <p class="step-subtitle">Pick an available date, then select a time slot. Our team visits Monday to Saturday.</p>
+          <div class="calendar-wrap">
+            <div class="cal-header">
+              <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+              <div class="cal-month-year" id="calMonthYear"></div>
+              <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+            </div>
+            <div class="cal-grid" id="calGrid">
+              <div class="cal-day-hdr">Sun</div><div class="cal-day-hdr">Mon</div><div class="cal-day-hdr">Tue</div>
+              <div class="cal-day-hdr">Wed</div><div class="cal-day-hdr">Thu</div><div class="cal-day-hdr">Fri</div><div class="cal-day-hdr">Sat</div>
+            </div>
+          </div>
+          <span class="field-error" id="dateErr" style="margin-bottom:0.75rem;">Please select a date.</span>
+          <div class="time-section" id="timeSection">
+            <div style="font-size:0.9rem;font-weight:600;color:var(--clr-text);margin-bottom:0.25rem;" id="selectedDateLabel"></div>
+            <div class="time-group-label">Morning Slots</div>
+            <div class="time-slots" id="morningSlots"></div>
+            <div class="time-group-label" id="afternoonLabel">Afternoon Slots</div>
+            <div class="time-slots" id="afternoonSlots"></div>
+          </div>
+          <span class="field-error" id="timeErr" style="margin-top:0.75rem;">Please select a time slot.</span>
+          <div class="step-actions">
+            <button class="btn btn-back" id="step3Back">&larr; Back</button>
+            <button class="btn btn-primary" id="step3Next">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: OWNER DETAILS -->
+        <div class="form-step" id="step4">
+          <h2 class="step-title">Your Contact Information</h2>
+          <p class="step-subtitle">We'll use these details to confirm your home visit and send reminders.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="ownerFirst">First Name <span class="req">*</span></label>
+              <input type="text" id="ownerFirst" placeholder="e.g. Maria" autocomplete="given-name">
+              <span class="field-error" id="ownerFirstErr">Please enter your first name.</span>
+            </div>
+            <div class="form-group">
+              <label for="ownerLast">Last Name <span class="req">*</span></label>
+              <input type="text" id="ownerLast" placeholder="e.g. Santos" autocomplete="family-name">
+              <span class="field-error" id="ownerLastErr">Please enter your last name.</span>
+            </div>
+            <div class="form-group">
+              <label for="ownerMobile">Mobile Number <span class="req">*</span></label>
+              <div style="display:flex;">
+                <span style="display:flex;align-items:center;padding:0 0.75rem;background:var(--clr-bg-alt);border:1.5px solid var(--clr-border);border-right:none;border-radius:var(--radius-md) 0 0 var(--radius-md);font-size:0.875rem;color:var(--clr-text-secondary);white-space:nowrap;flex-shrink:0;">+63</span>
+                <input type="tel" id="ownerMobile" placeholder="9XX XXX XXXX" autocomplete="tel" style="border-radius:0 var(--radius-md) var(--radius-md) 0;border-left:none;">
+              </div>
+              <span class="field-error" id="ownerMobileErr">Please enter a valid 10-digit mobile number starting with 9.</span>
+            </div>
+            <div class="form-group">
+              <label for="ownerEmail">Email Address <span class="req">*</span></label>
+              <input type="email" id="ownerEmail" placeholder="you@email.com" autocomplete="email">
+              <span class="field-error" id="ownerEmailErr">Please enter a valid email address.</span>
+            </div>
+            <div class="form-group full">
+              <label for="ownerAddress">Home / Visit Address <span class="req">*</span></label>
+              <textarea id="ownerAddress" placeholder="Street address, barangay, city — this is where our team will visit" style="min-height:80px;"></textarea>
+              <span class="field-error" id="ownerAddressErr">Please enter your address for the home visit.</span>
+            </div>
+            <div class="form-group full">
+              <label>Preferred Contact Method <span class="req">*</span></label>
+              <div class="radio-group" id="contactMethodGroup">
+                <label class="radio-pill"><input type="radio" name="contactMethod" value="SMS"><span>SMS</span></label>
+                <label class="radio-pill"><input type="radio" name="contactMethod" value="Facebook Messenger"><span>Facebook Messenger</span></label>
+                <label class="radio-pill"><input type="radio" name="contactMethod" value="Viber"><span>Viber</span></label>
+                <label class="radio-pill"><input type="radio" name="contactMethod" value="Email"><span>Email</span></label>
+              </div>
+              <span class="field-error" id="contactMethodErr">Please select a preferred contact method.</span>
+            </div>
+            <div class="form-group full">
+              <label for="referralSource">How did you hear about us?</label>
+              <select id="referralSource">
+                <option value="">Select an option</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Friend/Family Referral">Friend / Family Referral</option>
+                <option value="Existing Client">Existing Client</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="promoCode">Promo Code <span style="color:var(--clr-text-muted);font-weight:400;">(optional)</span></label>
+              <input type="text" id="promoCode" placeholder="Enter promo code if you have one">
+              <span class="input-hint">Leave blank if none. Discounts are applied during payment verification.</span>
+            </div>
+          </div>
+          <div style="margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--clr-border);">
+            <p style="font-size:0.875rem;font-weight:600;color:var(--clr-text);margin-bottom:1rem;">Before you continue, please confirm:</p>
+            <div class="checkbox-group">
+              <label class="check-item"><input type="checkbox" id="chk1"><span>I confirm all pet information provided is accurate.</span></label>
+              <label class="check-item"><input type="checkbox" id="chk2"><span>I understand that my booking will only be confirmed after payment is verified.</span></label>
+              <label class="check-item"><input type="checkbox" id="chk3"><span>I agree to the cancellation and rescheduling policy (<a href="faq.html">see FAQ</a>).</span></label>
+              <label class="check-item"><input type="checkbox" id="chk4"><span>I consent to receive appointment reminders via SMS or Facebook Messenger.</span></label>
+            </div>
+            <span class="field-error" id="checkboxErr" style="margin-top:0.75rem;">Please agree to all terms before continuing.</span>
+          </div>
+          <div class="step-actions">
+            <button class="btn btn-back" id="step4Back">&larr; Back</button>
+            <button class="btn btn-primary" id="step4Next">Continue to Payment &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: PAYMENT -->
+        <div class="form-step" id="step5">
+          <h2 class="step-title">Complete Your Payment</h2>
+          <p class="step-subtitle">Pay the ₱500 consultation fee to lock in your home visit slot. This is credited toward your total service cost.</p>
+
+          <div class="bsummary">
+            <h4>Home Visit Summary</h4>
+            <div class="bsum-row"><span class="bk">Service</span><span class="bv" id="payService">—</span></div>
+            <div class="bsum-row"><span class="bk">Pet</span><span class="bv" id="payPet">—</span></div>
+            <div class="bsum-row"><span class="bk">Date</span><span class="bv" id="payDate">—</span></div>
+            <div class="bsum-row"><span class="bk">Time</span><span class="bv" id="payTime">—</span></div>
+            <div class="bsum-row"><span class="bk">Owner</span><span class="bv" id="payOwner">—</span></div>
+            <div class="bsum-row"><span class="bk">Mobile</span><span class="bv" id="payMobile">—</span></div>
+            <div class="bsum-row"><span class="bk">Address</span><span class="bv" id="payAddress" style="max-width:220px;font-size:0.82rem;">—</span></div>
+            <hr class="bsum-divider">
+            <div class="bsum-row"><span class="bk">Consultation Fee</span><span class="bv" style="color:var(--clr-primary);">₱500.00</span></div>
+            <div class="bsum-row"><span class="bk">Applied Toward Service</span><span class="bv" style="color:var(--clr-secondary);">Yes, credited</span></div>
+            <div class="bsum-status"><span>&#9203;</span> Status: Pending Payment</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:600;color:var(--clr-text);margin-bottom:1rem;">Select payment method:</p>
+          <div class="payment-methods">
+
+            <!-- GCash -->
+            <div class="pay-option selected" data-method="gcash">
+              <div class="pay-option-header">
+                <input type="radio" name="payMethod" value="gcash" checked>
+                <span class="pay-label">&#128179; GCash</span>
+                <span class="pay-sublabel">Recommended</span>
+              </div>
+              <div class="pay-details">
+                <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;">
+                  <div class="qr-box">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" opacity=".4"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM19 19h2v2h-2z" fill="#6B5A48"/></svg>
+                    <span>GCash QR Code</span>
+                  </div>
+                  <div style="flex:1;min-width:180px;">
+                    <div class="pay-info-row"><span class="pk">Account Name</span><span class="pv">Nori and Panko Vet</span></div>
+                    <div class="pay-info-row"><span class="pk">GCash Number</span><span class="pv">+63 9XX XXX XXXX</span></div>
+                    <div class="pay-info-row"><span class="pk">Amount</span><span class="pv" style="color:var(--clr-primary);">₱500.00</span></div>
+                    <div class="pay-info-row"><span class="pk">Reference</span><span class="pv"><span class="ref-code" id="refCode">NP-2025-0001</span></span></div>
+                  </div>
+                </div>
+                <div class="pay-steps">
+                  <div class="pay-step"><div class="pay-step-n">1</div><div>Open your <strong>GCash</strong> app on your phone.</div></div>
+                  <div class="pay-step"><div class="pay-step-n">2</div><div>Tap <strong>Send Money</strong> &rarr; scan QR or enter mobile number.</div></div>
+                  <div class="pay-step"><div class="pay-step-n">3</div><div>Enter <strong>&#8369;500.00</strong> and add reference: <span class="ref-code" style="font-size:0.78rem;" id="refCodeInline">NP-2025-0001</span></div></div>
+                  <div class="pay-step"><div class="pay-step-n">4</div><div>Take a <strong>screenshot</strong> of your GCash receipt.</div></div>
+                  <div class="pay-step"><div class="pay-step-n">5</div><div>Upload your screenshot below to complete your booking.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bank Transfer -->
+            <div class="pay-option" data-method="bank">
+              <div class="pay-option-header">
+                <input type="radio" name="payMethod" value="bank">
+                <span class="pay-label">&#127968; Bank Transfer (BDO / BPI)</span>
+              </div>
+              <div class="pay-details">
+                <div class="pay-info-row"><span class="pk">Bank</span><span class="pv">BDO Unibank</span></div>
+                <div class="pay-info-row"><span class="pk">Account Name</span><span class="pv">Nori and Panko Vet Services</span></div>
+                <div class="pay-info-row"><span class="pk">Account Number</span><span class="pv">XXXX-XXXX-XXXX</span></div>
+                <div class="pay-info-row"><span class="pk">Amount</span><span class="pv" style="color:var(--clr-primary);">₱500.00</span></div>
+                <div class="pay-info-row"><span class="pk">Reference</span><span class="pv"><span class="ref-code">NP-2025-0001</span></span></div>
+                <div class="alert alert-info" style="font-size:0.82rem;margin:1rem 0 0;">Include your reference number in the transfer remarks. Message us on Facebook for BPI account details.</div>
+              </div>
+            </div>
+
+            <!-- Maya -->
+            <div class="pay-option" data-method="maya">
+              <div class="pay-option-header">
+                <input type="radio" name="payMethod" value="maya">
+                <span class="pay-label">&#128179; PayMaya / Maya</span>
+              </div>
+              <div class="pay-details">
+                <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;">
+                  <div class="qr-box">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" opacity=".4"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="#6B5A48" stroke-width="1.5"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM19 19h2v2h-2z" fill="#6B5A48"/></svg>
+                    <span>Maya QR Code</span>
+                  </div>
+                  <div style="flex:1;min-width:180px;">
+                    <div class="pay-info-row"><span class="pk">Account Name</span><span class="pv">Nori and Panko Vet</span></div>
+                    <div class="pay-info-row"><span class="pk">Maya Number</span><span class="pv">+63 9XX XXX XXXX</span></div>
+                    <div class="pay-info-row"><span class="pk">Amount</span><span class="pv" style="color:var(--clr-primary);">₱500.00</span></div>
+                    <div class="pay-info-row"><span class="pk">Reference</span><span class="pv"><span class="ref-code">NP-2025-0001</span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Facebook Messenger (instead of Pay at Clinic) -->
+            <div class="pay-option" data-method="messenger">
+              <div class="pay-option-header">
+                <input type="radio" name="payMethod" value="messenger">
+                <span class="pay-label">&#128172; Arrange via Facebook Messenger</span>
+                <span class="pay-sublabel" style="color:#C0613F;">Slot not guaranteed</span>
+              </div>
+              <div class="pay-details">
+                <div class="alert alert-warn" style="margin:0;">
+                  <strong>Note:</strong> Choosing this option does <strong>not</strong> guarantee your slot. We recommend paying via GCash or Maya to secure your preferred date and time. Message us on <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener" style="color:var(--clr-primary);text-decoration:underline;">Facebook</a> to arrange an alternative payment.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- File upload -->
+          <div id="uploadSection">
+            <label style="font-size:0.875rem;font-weight:600;color:var(--clr-text);display:block;margin-bottom:0.375rem;">Upload Payment Screenshot <span class="req">*</span></label>
+            <p style="font-size:0.8rem;color:var(--clr-text-muted);margin-bottom:0.75rem;">After sending payment, upload your receipt screenshot here to complete the booking.</p>
+            <div class="upload-area" id="dropZone">
+              <input type="file" id="fileInput" accept=".jpg,.jpeg,.png">
+              <div class="upload-icon-el">&#128247;</div>
+              <div class="upload-text">Drag &amp; drop your screenshot here</div>
+              <div class="upload-hint-text">or click to browse &mdash; JPG, PNG (max 5MB)</div>
+              <div class="upload-filename" id="uploadFilename"></div>
+            </div>
+            <span class="field-error" id="uploadErr" style="margin-top:0.5rem;">Please upload your payment screenshot to continue.</span>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <button class="btn btn-primary btn-lg" id="submitBooking" style="width:100%;justify-content:center;font-size:1rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2" stroke="white" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              Submit Booking &amp; Confirm Payment
+            </button>
+            <p style="font-size:0.8rem;color:var(--clr-text-muted);text-align:center;margin-top:1rem;line-height:1.6;">After submitting, our team will verify your payment within <strong>1–2 hours</strong> and send confirmation to your mobile and Facebook.</p>
+          </div>
+          <div style="margin-top:1rem;">
+            <button class="btn btn-back btn-sm" id="step5Back">&larr; Edit Details</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="booking-success" id="bookingSuccess">
+          <div class="success-circle">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--clr-text);margin-bottom:0.75rem;">Booking Submitted!</h2>
+          <p style="font-size:0.95rem;color:var(--clr-text-secondary);max-width:460px;margin:0 auto 1.25rem;line-height:1.7;">Your home visit request has been received. Once we verify your payment (usually within 1–2 hours), we'll send you a confirmation message.</p>
+          <div class="success-ref" id="successRef">NP-2025-0001</div>
+          <div class="status-timeline">
+            <div class="tl-item"><div class="tl-dot tl-done">&#10003;</div><span class="tl-text done">Booking Request Received</span></div>
+            <div class="tl-item"><div class="tl-dot tl-pending">&#9203;</div><span class="tl-text">Payment Verification <em style="font-size:0.78rem;color:var(--clr-text-muted);">(in progress)</em></span></div>
+            <div class="tl-item"><div class="tl-dot tl-wait"></div><span class="tl-text">Booking Confirmed</span></div>
+            <div class="tl-item"><div class="tl-dot tl-wait"></div><span class="tl-text">Reminder Sent (24 hrs before visit)</span></div>
+          </div>
+          <div class="success-actions">
+            <button class="btn btn-secondary" id="addToCalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Add to Calendar
+            </button>
+            <a href="index.html" class="btn btn-primary">Back to Homepage</a>
+          </div>
+        </div>
+
+      </div><!-- /form panel -->
+
+      <!-- SUMMARY SIDEBAR -->
+      <aside>
+        <div class="summary-card" id="summaryCard">
+          <div class="summary-title">Home Visit Summary</div>
+          <div class="summary-empty" id="summaryEmpty">Complete the form to see your appointment summary here.</div>
+          <div id="summaryContent" style="display:none;">
+            <div class="summary-row"><span class="sk">Service</span><span class="sv" id="sumService">—</span></div>
+            <div class="summary-row"><span class="sk">Pet</span><span class="sv" id="sumPet">—</span></div>
+            <div class="summary-row"><span class="sk">Date</span><span class="sv" id="sumDate">—</span></div>
+            <div class="summary-row"><span class="sk">Time</span><span class="sv" id="sumTime">—</span></div>
+            <div class="summary-row"><span class="sk">Owner</span><span class="sv" id="sumOwner">—</span></div>
+            <div class="summary-row"><span class="sk">Mobile</span><span class="sv" id="sumMobile">—</span></div>
+            <div class="sum-fee-block">
+              <div class="sum-fee-row"><span class="fl">Consultation Fee</span><span class="fv">₱500.00</span></div>
+              <div class="sum-fee-row" style="font-size:0.78rem;color:var(--clr-text-muted);"><span>Applied toward service</span><span style="color:var(--clr-secondary);">&#10003;</span></div>
+            </div>
+            <div><span class="status-badge status-pending" id="summaryStatusBadge"><span>&#9203;</span> Pending Confirmation</span></div>
+          </div>
+          <div class="sum-help">
+            <strong>Need help?</strong>
+            Message us on <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener" style="color:var(--clr-primary);">Facebook Messenger</a> — we typically reply within a few hours.
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#2B1F14;color:rgba(255,255,255,0.7);padding:4rem 0 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <span style="font-size:1.5rem;">🐾</span>
+          <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;">Nori and Panko</div>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;margin-bottom:1.5rem;">Home service veterinary care bringing expert pet health to your doorstep across the Philippines.</p>
+        <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;background:rgba(255,255,255,0.1);border-radius:9999px;color:white;font-size:0.875rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--clr-primary)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          facebook.com/noriandoankoshop
+        </a>
+      </div>
+      <div>
+        <h4 style="color:white;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.625rem;">
+          <li><a href="index.html" style="color:rgba(255,255,255,0.65);font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Home</a></li>
+          <li><a href="about.html" style="color:rgba(255,255,255,0.65);font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Meet Our Team</a></li>
+          <li><a href="services.html" style="color:rgba(255,255,255,0.65);font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Our Services</a></li>
+          <li><a href="booking.html" style="color:rgba(255,255,255,0.65);font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Book a Home Visit</a></li>
+          <li><a href="blog.html" style="color:rgba(255,255,255,0.65);font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Pet Health Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:white;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Services</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.625rem;">
+          <li><a href="services.html#vaccination" style="color:rgba(255,255,255,0.65);font-size:0.875rem;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Home Vaccination</a></li>
+          <li><a href="services.html#consultation" style="color:rgba(255,255,255,0.65);font-size:0.875rem;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Wellness Consultation</a></li>
+          <li><a href="services.html#kapon" style="color:rgba(255,255,255,0.65);font-size:0.875rem;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Spay &amp; Neuter (Kapon)</a></li>
+          <li><a href="services.html#grooming" style="color:rgba(255,255,255,0.65);font-size:0.875rem;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Pet Grooming</a></li>
+          <li><a href="services.html#senior" style="color:rgba(255,255,255,0.65);font-size:0.875rem;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Senior Pet Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:white;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.875rem;">
+          <div style="display:flex;gap:0.625rem;align-items:flex-start;">
+            <span style="margin-top:2px;opacity:.7;">&#128205;</span>
+            <span>Serving pets across the Philippines &mdash; we come to you.</span>
+          </div>
+          <div style="display:flex;gap:0.625rem;align-items:flex-start;">
+            <span style="margin-top:2px;opacity:.7;">&#128172;</span>
+            <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.65);text-decoration:none;" onmouseover="this.style.color='#F2B06A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Message us on Facebook</a>
+          </div>
+          <div style="display:flex;gap:0.625rem;align-items:flex-start;">
+            <span style="margin-top:2px;opacity:.7;">&#128336;</span>
+            <span>Mon &ndash; Sat, 8:00 AM &ndash; 6:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);">&copy; 2025 Nori and Panko Home Service Veterinarian. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="faq.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;">FAQ</a>
+        <a href="contact.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;">Contact</a>
+        <a href="admin.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;">Admin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  /* ── BOOKING FORM LOGIC ── */
+  (function() {
+    'use strict';
+
+    /* State */
+    const state = {
+      currentStep: 1,
+      totalSteps: 5,
+      petName: '', petType: '', petAge: '', petSex: '',
+      service: '', servicePrice: '',
+      selectedDate: null, selectedTime: '',
+      ownerFirst: '', ownerLast: '', ownerMobile: '', ownerEmail: '', ownerAddress: '',
+      payMethod: 'gcash',
+      refCode: 'NP-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9000) + 1000)
+    };
+
+    /* Helpers */
+    function $(id) { return document.getElementById(id); }
+    function showError(id, msg) {
+      const el = $(id);
+      if (!el) return;
+      el.textContent = msg || el.textContent;
+      el.classList.add('show');
+      el.style.display = 'block';
+    }
+    function hideError(id) {
+      const el = $(id);
+      if (!el) return;
+      el.classList.remove('show');
+      el.style.display = 'none';
+    }
+
+    /* Set reference code */
+    ['refCode', 'refCodeInline'].forEach(id => {
+      const el = $(id);
+      if (el) el.textContent = state.refCode;
+    });
+    document.querySelectorAll('.ref-code').forEach(el => { el.textContent = state.refCode; });
+
+    /* Stepper UI */
+    function updateStepper(step) {
+      document.querySelectorAll('.step-item').forEach(item => {
+        const n = parseInt(item.dataset.step);
+        item.classList.remove('active', 'completed');
+        if (n === step) item.classList.add('active');
+        else if (n < step) item.classList.add('completed');
+      });
+    }
+
+    function goToStep(n) {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      const target = $('step' + n);
+      if (target) target.classList.add('active');
+      state.currentStep = n;
+      updateStepper(n);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* Radio pills — highlight selected */
+    document.querySelectorAll('.radio-group').forEach(group => {
+      group.querySelectorAll('.radio-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          group.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('selected'));
+          pill.classList.add('selected');
+        });
+        const radio = pill.querySelector('input[type="radio"]');
+        if (radio && radio.checked) pill.classList.add('selected');
+      });
+    });
+
+    /* Service option selection */
+    document.querySelectorAll('.service-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.service-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        const radio = opt.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+        state.service = opt.dataset.service;
+        state.servicePrice = opt.dataset.price;
+        hideError('serviceErr');
+        updateSidebar();
+      });
+    });
+
+    /* Payment method selection */
+    document.querySelectorAll('.pay-option').forEach(opt => {
+      const header = opt.querySelector('.pay-option-header');
+      const radio = opt.querySelector('input[type="radio"]');
+      if (!header) return;
+      header.addEventListener('click', () => {
+        document.querySelectorAll('.pay-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        if (radio) radio.checked = true;
+        state.payMethod = opt.dataset.method;
+        // Hide upload if messenger chosen
+        const uploadSection = $('uploadSection');
+        if (uploadSection) {
+          uploadSection.style.display = (state.payMethod === 'messenger') ? 'none' : 'block';
+        }
+      });
+    });
+
+    /* Calendar */
+    let calYear, calMonth;
+    function initCalendar() {
+      const now = new Date();
+      calYear = now.getFullYear();
+      calMonth = now.getMonth();
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const $monthYear = $('calMonthYear');
+      const $grid = $('calGrid');
+      if (!$monthYear || !$grid) return;
+
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      $monthYear.textContent = months[calMonth] + ' ' + calYear;
+
+      // Remove previous day cells
+      $grid.querySelectorAll('.cal-cell').forEach(c => c.remove());
+
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // Empty cells
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'cal-cell disabled';
+        $grid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-cell';
+        cell.textContent = d;
+        const thisDate = new Date(calYear, calMonth, d);
+        const dayOfWeek = thisDate.getDay();
+
+        if (thisDate < today || dayOfWeek === 0) {
+          cell.classList.add('disabled');
+        } else {
+          if (thisDate.toDateString() === today.toDateString()) cell.classList.add('today');
+          cell.addEventListener('click', () => {
+            document.querySelectorAll('.cal-cell').forEach(c => c.classList.remove('selected'));
+            cell.classList.add('selected');
+            state.selectedDate = thisDate;
+            state.selectedTime = '';
+            showTimeSlots(thisDate);
+            hideError('dateErr');
+          });
+          if (state.selectedDate && thisDate.toDateString() === state.selectedDate.toDateString()) {
+            cell.classList.add('selected');
+          }
+        }
+        $grid.appendChild(cell);
+      }
+    }
+
+    function showTimeSlots(date) {
+      const timeSection = $('timeSection');
+      const dateLabel = $('selectedDateLabel');
+      if (!timeSection || !dateLabel) return;
+
+      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      dateLabel.textContent = dayNames[date.getDay()] + ', ' + months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+
+      const isSaturday = date.getDay() === 6;
+      const morningTimes = ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM'];
+      const afternoonTimes = isSaturday ? ['1:00 PM', '2:00 PM'] : ['1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
+
+      // Simulate some booked slots
+      const booked = ['10:00 AM', '2:00 PM'];
+
+      function renderSlots(containerId, times) {
+        const container = $(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        times.forEach(time => {
+          const slot = document.createElement('button');
+          slot.type = 'button';
+          slot.className = 'time-slot' + (booked.includes(time) ? ' booked' : '');
+          slot.textContent = time + (booked.includes(time) ? ' (Taken)' : '');
+          if (!booked.includes(time)) {
+            slot.addEventListener('click', () => {
+              document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+              slot.classList.add('selected');
+              state.selectedTime = time;
+              hideError('timeErr');
+              updateSidebar();
+            });
+          }
+          container.appendChild(slot);
+        });
+      }
+
+      renderSlots('morningSlots', morningTimes);
+      renderSlots('afternoonSlots', afternoonTimes);
+      timeSection.classList.add('visible');
+    }
+
+    $('calPrev').addEventListener('click', () => {
+      calMonth--;
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    });
+
+    $('calNext').addEventListener('click', () => {
+      calMonth++;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      renderCalendar();
+    });
+
+    initCalendar();
+
+    /* Sidebar update */
+    function updateSidebar() {
+      const summaryEmpty = $('summaryEmpty');
+      const summaryContent = $('summaryContent');
+      if (!summaryEmpty || !summaryContent) return;
+
+      const petName = $('petName') ? $('petName').value.trim() : '';
+      const petType = $('petType') ? $('petType').value : '';
+      const ownerFirst = $('ownerFirst') ? $('ownerFirst').value.trim() : '';
+      const ownerLast = $('ownerLast') ? $('ownerLast').value.trim() : '';
+      const ownerMobile = $('ownerMobile') ? $('ownerMobile').value.trim() : '';
+
+      if (!petName && !state.service) {
+        summaryEmpty.style.display = 'block';
+        summaryContent.style.display = 'none';
+        return;
+      }
+
+      summaryEmpty.style.display = 'none';
+      summaryContent.style.display = 'block';
+
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const dateStr = state.selectedDate
+        ? months[state.selectedDate.getMonth()] + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear()
+        : '—';
+
+      if ($('sumService')) $('sumService').textContent = state.service || '—';
+      if ($('sumPet')) $('sumPet').textContent = petName ? (petName + (petType ? ' (' + petType + ')' : '')) : '—';
+      if ($('sumDate')) $('sumDate').textContent = dateStr;
+      if ($('sumTime')) $('sumTime').textContent = state.selectedTime || '—';
+      if ($('sumOwner')) $('sumOwner').textContent = (ownerFirst || ownerLast) ? (ownerFirst + ' ' + ownerLast).trim() : '—';
+      if ($('sumMobile')) $('sumMobile').textContent = ownerMobile ? '+63 ' + ownerMobile : '—';
+
+      // Update step 5 summary
+      const months2 = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const dateStr2 = state.selectedDate
+        ? months2[state.selectedDate.getMonth()] + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear()
+        : '—';
+      if ($('payService')) $('payService').textContent = state.service || '—';
+      if ($('payPet')) $('payPet').textContent = petName ? (petName + (petType ? ' (' + petType + ')' : '')) : '—';
+      if ($('payDate')) $('payDate').textContent = dateStr2;
+      if ($('payTime')) $('payTime').textContent = state.selectedTime || '—';
+      if ($('payOwner')) $('payOwner').textContent = (ownerFirst || ownerLast) ? (ownerFirst + ' ' + ownerLast).trim() : '—';
+      if ($('payMobile')) $('payMobile').textContent = ownerMobile ? '+63 ' + ownerMobile : '—';
+      const addr = $('ownerAddress') ? $('ownerAddress').value.trim() : '';
+      if ($('payAddress')) $('payAddress').textContent = addr || '—';
+    }
+
+    /* Live updates */
+    ['petName','petType','ownerFirst','ownerLast','ownerMobile'].forEach(id => {
+      const el = $(id);
+      if (el) el.addEventListener('input', updateSidebar);
+    });
+
+    /* Step 1 validation */
+    $('step1Next').addEventListener('click', () => {
+      let valid = true;
+      const petName = $('petName').value.trim();
+      const petType = $('petType').value;
+      const petAge = $('petAge').value;
+      const petSex = $('petSex').value;
+      const firstVisit = document.querySelector('input[name="firstVisit"]:checked');
+      const vacRecords = document.querySelector('input[name="vacRecords"]:checked');
+
+      if (!petName) { showError('petNameErr'); valid = false; } else hideError('petNameErr');
+      if (!petType) { showError('petTypeErr'); valid = false; } else hideError('petTypeErr');
+      if (!petAge) { showError('petAgeErr'); valid = false; } else hideError('petAgeErr');
+      if (!petSex) { showError('petSexErr'); valid = false; } else hideError('petSexErr');
+      if (!firstVisit) { showError('firstVisitErr'); valid = false; } else hideError('firstVisitErr');
+      if (!vacRecords) { showError('vacRecordsErr'); valid = false; } else hideError('vacRecordsErr');
+
+      if (valid) {
+        state.petName = petName;
+        state.petType = petType;
+        updateSidebar();
+        goToStep(2);
+      }
+    });
+
+    $('step2Back').addEventListener('click', () => goToStep(1));
+    $('step2Next').addEventListener('click', () => {
+      if (!state.service) { showError('serviceErr'); return; }
+      hideError('serviceErr');
+      goToStep(3);
+    });
+
+    $('step3Back').addEventListener('click', () => goToStep(2));
+    $('step3Next').addEventListener('click', () => {
+      if (!state.selectedDate) { showError('dateErr'); return; }
+      hideError('dateErr');
+      if (!state.selectedTime) { showError('timeErr'); return; }
+      hideError('timeErr');
+      updateSidebar();
+      goToStep(4);
+    });
+
+    $('step4Back').addEventListener('click', () => goToStep(3));
+    $('step4Next').addEventListener('click', () => {
+      let valid = true;
+      const first = $('ownerFirst').value.trim();
+      const last = $('ownerLast').value.trim();
+      const mobile = $('ownerMobile').value.trim();
+      const email = $('ownerEmail').value.trim();
+      const address = $('ownerAddress').value.trim();
+      const contactMethod = document.querySelector('input[name="contactMethod"]:checked');
+      const chk1 = $('chk1').checked;
+      const chk2 = $('chk2').checked;
+      const chk3 = $('chk3').checked;
+      const chk4 = $('chk4').checked;
+
+      if (!first) { showError('ownerFirstErr'); valid = false; } else hideError('ownerFirstErr');
+      if (!last) { showError('ownerLastErr'); valid = false; } else hideError('ownerLastErr');
+      if (!mobile || !/^9\d{9}$/.test(mobile)) { showError('ownerMobileErr'); valid = false; } else hideError('ownerMobileErr');
+      if (!email || !/\S+@\S+\.\S+/.test(email)) { showError('ownerEmailErr'); valid = false; } else hideError('ownerEmailErr');
+      if (!address) { showError('ownerAddressErr'); valid = false; } else hideError('ownerAddressErr');
+      if (!contactMethod) { showError('contactMethodErr'); valid = false; } else hideError('contactMethodErr');
+      if (!chk1 || !chk2 || !chk3 || !chk4) { showError('checkboxErr'); valid = false; } else hideError('checkboxErr');
+
+      if (valid) {
+        updateSidebar();
+        goToStep(5);
+      }
+    });
+
+    $('step5Back').addEventListener('click', () => goToStep(4));
+
+    /* File upload drag and drop */
+    const dropZone = $('dropZone');
+    const fileInput = $('fileInput');
+    const uploadFilename = $('uploadFilename');
+
+    if (dropZone && fileInput) {
+      dropZone.addEventListener('click', () => fileInput.click());
+      dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+      dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+      dropZone.addEventListener('drop', e => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file) handleFile(file);
+      });
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files[0]) handleFile(fileInput.files[0]);
+      });
+    }
+
+    function handleFile(file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File is too large. Please upload a file under 5MB.');
+        return;
+      }
+      if (dropZone) dropZone.classList.add('has-file');
+      if (uploadFilename) {
+        uploadFilename.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+        uploadFilename.style.display = 'block';
+      }
+      hideError('uploadErr');
+      state.fileUploaded = true;
+    }
+
+    /* Submit */
+    $('submitBooking').addEventListener('click', () => {
+      if (state.payMethod !== 'messenger' && !state.fileUploaded) {
+        showError('uploadErr');
+        return;
+      }
+      hideError('uploadErr');
+
+      // Show success
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      const success = $('bookingSuccess');
+      if (success) success.classList.add('visible');
+      if ($('successRef')) $('successRef').textContent = state.refCode;
+
+      // Update stepper to all completed
+      document.querySelectorAll('.step-item').forEach(item => {
+        item.classList.remove('active');
+        item.classList.add('completed');
+      });
+
+      // Update sidebar status
+      const badge = $('summaryStatusBadge');
+      if (badge) {
+        badge.className = 'status-badge status-payment';
+        badge.innerHTML = '<span>&#128179;</span> Awaiting Verification';
+      }
+    });
+
+    /* Add to calendar */
+    const addCalBtn = $('addToCalBtn');
+    if (addCalBtn) {
+      addCalBtn.addEventListener('click', () => {
+        if (!state.selectedDate || !state.selectedTime) {
+          alert('No date/time selected to add to calendar.');
+          return;
+        }
+        // Basic ICS generation
+        const d = state.selectedDate;
+        const dtStr = d.getFullYear()
+          + String(d.getMonth() + 1).padStart(2, '0')
+          + String(d.getDate()).padStart(2, '0');
+        const ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'BEGIN:VEVENT',
+          'DTSTART:' + dtStr + 'T090000',
+          'DTEND:' + dtStr + 'T100000',
+          'SUMMARY:Nori and Panko Home Visit — ' + state.service,
+          'DESCRIPTION:Reference: ' + state.refCode,
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+        const blob = new Blob([ics], { type: 'text/calendar' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'nori-panko-appointment.ics';
+        a.click();
+      });
+    }
+
+  })();
+</script>
+</body>
+</html>

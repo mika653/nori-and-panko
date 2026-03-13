@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the Nori and Panko team — a dedicated group of home service veterinarians bringing professional, compassionate pet care to your doorstep across the Philippines.">
+  <meta name="keywords" content="Nori and Panko veterinarians, home service vet team Philippines, mobile vet about, pet care team Philippines">
+  <meta property="og:title" content="About Us | Nori and Panko Home Service Veterinarian">
+  <meta property="og:description" content="Meet the warm, dedicated team behind Nori and Panko — veterinarians who believe pet care should happen where pets feel safest: at home.">
+  <title>About Us | Nori and Panko Home Service Veterinarian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --clr-primary: #E8913A; --clr-primary-dark: #C97A2E; --clr-primary-light: #F2B06A;
+      --clr-primary-subtle: #FFF8F0; --clr-secondary: #6B8F71; --clr-secondary-subtle: #F0F5F1;
+      --clr-accent: #D4638F; --clr-peach: #FDE8D0; --clr-bg: #FFFAF5; --clr-bg-alt: #FFF3E6;
+      --clr-surface: #FFFFFF; --clr-text: #2B1F14; --clr-text-secondary: #6B5A48;
+      --clr-text-muted: #9B8A78; --clr-border: #E8DFD5;
+      --ff-heading: 'Playfair Display', Georgia, serif; --ff-body: 'Nunito', system-ui, sans-serif;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1.25rem; --radius-xl: 2rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(232,145,58,.08); --shadow-md: 0 4px 16px rgba(232,145,58,.10);
+      --shadow-lg: 0 12px 40px rgba(232,145,58,.14); --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--ff-body); font-size: 1rem; line-height: 1.7; color: var(--clr-text); background: var(--clr-bg); }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+    .section { padding-block: 5rem; }
+    .section-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-subtle); border: 1px solid rgba(232,145,58,.2); border-radius: var(--radius-full); padding: 0.35rem 1rem; margin-bottom: 1.25rem; }
+    .section-title { font-family: var(--ff-heading); font-size: clamp(1.75rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.22; color: var(--clr-text); margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--clr-text-secondary); max-width: 560px; line-height: 1.75; }
+    .text-center { text-align: center; } .text-center .section-subtitle { margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--ff-body); font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-full); padding: 0.85rem 2rem; transition: all var(--transition); white-space: nowrap; text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+    .btn-primary { background: var(--clr-primary); color: #fff; border-color: var(--clr-primary); }
+    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--clr-primary); border-color: var(--clr-primary); }
+    .btn-secondary:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
+    .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
+    .nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,245,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--clr-border); transition: box-shadow var(--transition); }
+    .nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-container { display: flex; align-items: center; gap: 2rem; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-icon { width: 40px; height: 40px; background: var(--clr-primary-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; margin-left: auto; }
+    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--clr-text-secondary); text-decoration: none; padding: 0.5rem 0.875rem; border-radius: var(--radius-full); transition: all var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; margin-left: 1rem; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; border-radius: var(--radius-sm); cursor: pointer; background: none; border: none; margin-left: auto; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--clr-text); border-radius: 2px; transition: all var(--transition); }
+    .nav-mobile-menu { display: none; padding: 1.25rem 1.5rem 1.75rem; border-top: 1px solid var(--clr-border); background: var(--clr-surface); }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu a { display: block; padding: 0.7rem 1rem; font-size: 0.95rem; font-weight: 600; color: var(--clr-text-secondary); border-radius: var(--radius-sm); transition: all var(--transition); }
+    .nav-mobile-menu a:hover { color: var(--clr-primary); background: var(--clr-primary-subtle); }
+    @media (max-width: 900px) { .nav-links, .nav-actions { display: none; } .nav-toggle { display: flex; } }
+
+    /* PAGE HERO */
+    .page-hero { background: linear-gradient(135deg, var(--clr-primary-subtle) 0%, #fff 60%, #f5f8f2 100%); padding: 4rem 0 3.5rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(232,145,58,.08) 0%, transparent 70%); border-radius: 50%; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--clr-primary); }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--clr-border); }
+
+    /* MISSION */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .mission-visual { background: linear-gradient(135deg, var(--clr-primary-subtle), var(--clr-peach)); border-radius: var(--radius-xl); padding: 3rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; min-height: 380px; text-align: center; }
+    .mission-visual-emoji { font-size: 5rem; line-height: 1; }
+    .mission-visual-text { font-family: var(--ff-heading); font-size: 1.35rem; font-weight: 700; color: var(--clr-primary-dark); font-style: italic; }
+    .mission-visual-sub { font-size: 0.9rem; color: var(--clr-text-secondary); }
+    @media (max-width: 768px) { .mission-grid { grid-template-columns: 1fr; } }
+
+    /* TEAM SECTION */
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .team-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition); }
+    .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--clr-primary-light); }
+    .team-card-img { height: 220px; background: linear-gradient(135deg, var(--clr-primary-subtle), var(--clr-peach)); display: flex; align-items: center; justify-content: center; font-size: 5rem; border-bottom: 1px solid var(--clr-border); }
+    .team-card-body { padding: 1.75rem; }
+    .team-card-name { font-family: var(--ff-heading); font-size: 1.25rem; font-weight: 700; color: var(--clr-text); margin-bottom: 0.25rem; }
+    .team-card-role { font-size: 0.85rem; font-weight: 700; color: var(--clr-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+    .team-card-bio { font-size: 0.9rem; color: var(--clr-text-secondary); line-height: 1.75; margin-bottom: 1.25rem; }
+    .team-card-creds { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .team-cred { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-weight: 700; color: var(--clr-secondary); background: var(--clr-secondary-subtle); border-radius: var(--radius-full); padding: 0.25rem 0.75rem; border: 1px solid rgba(107,143,113,.2); }
+    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } }
+
+    /* VALUES */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .value-card { text-align: center; padding: 2rem 1.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); transition: all var(--transition); }
+    .value-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--clr-primary-light); }
+    .value-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .value-title { font-family: var(--ff-heading); font-size: 1.15rem; font-weight: 600; color: var(--clr-text); margin-bottom: 0.6rem; }
+    .value-desc { font-size: 0.9rem; color: var(--clr-text-secondary); line-height: 1.7; }
+    @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 580px) and (max-width: 768px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* STATS */
+    .stats-strip { background: var(--clr-primary); padding: 3rem 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .stat-item { text-align: center; color: #fff; }
+    .stat-number { font-family: var(--ff-heading); font-size: 2.5rem; font-weight: 700; line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.875rem; color: rgba(255,255,255,.8); font-weight: 600; }
+    @media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: rgba(255,255,255,.05); border-radius: 50%; }
+    .cta-section h2 { font-family: var(--ff-heading); font-size: clamp(1.75rem, 3vw, 2.4rem); font-weight: 700; color: white; margin-bottom: 1rem; position: relative; z-index: 1; }
+    .cta-section p { font-size: 1.05rem; color: rgba(255,255,255,.85); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.75; position: relative; z-index: 1; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-white { background: #fff; color: var(--clr-primary-dark); border-color: #fff; }
+    .btn-white:hover { background: var(--clr-primary-subtle); transform: translateY(-1px); }
+
+    /* FOOTER */
+    .footer { background: var(--clr-primary-dark); color: rgba(255,255,255,0.75); padding-top: 4.5rem; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-logo-name { font-family: var(--ff-heading); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem; }
+    .footer-tagline { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,.65); margin-bottom: 1.5rem; }
+    .footer-social { display: flex; gap: 0.75rem; }
+    .footer-social a { width: 38px; height: 38px; border-radius: var(--radius-md); background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); transition: all var(--transition); border: 1px solid rgba(255,255,255,.1); }
+    .footer-social a:hover { background: rgba(255,255,255,.18); color: #fff; transform: translateY(-2px); }
+    .footer-heading { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 1.25rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,.65); transition: color var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-contact-item { font-size: 0.85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-block: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom a { color: rgba(255,255,255,.5); transition: color var(--transition); }
+    .footer-bottom a:hover { color: rgba(255,255,255,.9); }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; } }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="mainNav">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐾</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#2B1F14;line-height:1.2;">Nori and Panko</div>
+          <div style="font-size:0.68rem;color:#E8913A;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;">Home Vet Service</div>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="booking.html" class="btn btn-primary btn-sm">Book a Visit</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:0.25rem;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" style="color:var(--clr-primary);">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">Book a Home Visit</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>About</span>
+      </nav>
+      <div class="section-badge">Our Story</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;line-height:1.2;color:#2B1F14;max-width:680px;margin-bottom:1.25rem;">
+        Meet the Team Behind<br>Nori and Panko
+      </h1>
+      <p style="font-size:1.1rem;color:#6B5A48;max-width:580px;line-height:1.75;">
+        We're a fun, passionate team of veterinarians who believe the best vet visit is the one your pet barely notices — because they're still in their favorite spot: home.
+      </p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- MISSION SECTION -->
+    <section class="section" style="background:var(--clr-surface);">
+      <div class="container">
+        <div class="mission-grid">
+          <div class="reveal">
+            <div class="section-badge">Why We Exist</div>
+            <h2 class="section-title">Vet Care the Way Pets Prefer It</h2>
+            <p style="font-size:1.05rem;color:var(--clr-text-secondary);line-height:1.8;margin-bottom:1.5rem;">
+              We started Nori and Panko because we kept seeing the same thing: healthy, happy pets turning into anxious, trembling balls of fur the moment they got near a clinic. We thought — what if we just went to them instead?
+            </p>
+            <p style="font-size:1.05rem;color:var(--clr-text-secondary);line-height:1.8;margin-bottom:1.5rem;">
+              Our names are inspired by Japanese food — Nori (the seaweed) and Panko (the breadcrumbs) — because we love the idea of names that are warm, a little quirky, and instantly memorable. Just like us.
+            </p>
+            <p style="font-size:1.05rem;color:var(--clr-text-secondary);line-height:1.8;margin-bottom:2rem;">
+              Today, we're a growing team of licensed veterinarians serving pet families across the Philippines, bringing vaccinations, consultations, spay/neuter procedures, and more — straight to your door.
+            </p>
+            <a href="booking.html" class="btn btn-primary">Book a Home Visit</a>
+          </div>
+          <div class="mission-visual reveal" data-delay="150">
+            <div class="mission-visual-emoji">🐾</div>
+            <div class="mission-visual-text">"Experience the ease of<br>pet care at your doorstep"</div>
+            <div class="mission-visual-sub">— The Nori and Panko Team</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">1,000+</div>
+            <div class="stat-label">Pets Visited</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Home Service</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5.0</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Years Serving PH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM SECTION -->
+    <section class="section" style="background:var(--clr-bg);">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:3.5rem;">
+          <div class="section-badge">The Team</div>
+          <h2 class="section-title">The Veterinarians Who Come to You</h2>
+          <p class="section-subtitle">Our team is made up of licensed, compassionate veterinarians who are serious about pet health — and seriously fun to have around.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-card-img">👩‍⚕️</div>
+            <div class="team-card-body">
+              <div class="team-card-name">Dr. Nori</div>
+              <div class="team-card-role">Lead Veterinarian &amp; Co-Founder</div>
+              <p class="team-card-bio">Dr. Nori has a passion for feline medicine and preventive care. Known for her calm energy and gentle hands, she can win over even the most suspicious cats within minutes of arriving. She believes every pet deserves to be treated with the patience and dignity they deserve.</p>
+              <div class="team-card-creds">
+                <span class="team-cred">Licensed DVM</span>
+                <span class="team-cred">Feline Specialist</span>
+                <span class="team-cred">PVMA Member</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal" data-delay="150">
+            <div class="team-card-img">👨‍⚕️</div>
+            <div class="team-card-body">
+              <div class="team-card-name">Dr. Panko</div>
+              <div class="team-card-role">Senior Veterinarian &amp; Co-Founder</div>
+              <p class="team-card-bio">Dr. Panko specializes in canine health and minor surgical procedures including spay and neuter. His friendly, easy-going nature makes nervous dogs feel at ease, and his thoroughness in examinations gives pet owners real peace of mind. He approaches each visit like a house call should feel — unhurried and personal.</p>
+              <div class="team-card-creds">
+                <span class="team-cred">Licensed DVM</span>
+                <span class="team-cred">Canine Surgery</span>
+                <span class="team-cred">PVMA Member</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal" data-delay="100">
+            <div class="team-card-img">👩‍⚕️</div>
+            <div class="team-card-body">
+              <div class="team-card-name">Dr. Mochi</div>
+              <div class="team-card-role">Associate Veterinarian</div>
+              <p class="team-card-bio">Dr. Mochi handles wellness consultations and vaccination drives for our busiest areas. She's the team's resident encyclopedia on parasite control and puppy/kitten care — always ready with advice tailored to your specific pet's needs and lifestyle.</p>
+              <div class="team-card-creds">
+                <span class="team-cred">Licensed DVM</span>
+                <span class="team-cred">Preventive Care</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal" data-delay="250">
+            <div class="team-card-img">👨‍⚕️</div>
+            <div class="team-card-body">
+              <div class="team-card-name">Dr. Tempeh</div>
+              <div class="team-card-role">Associate Veterinarian</div>
+              <p class="team-card-bio">Dr. Tempeh joined the team with a focus on senior pet care and nutrition counseling. He has a special way with older animals and brings compassion to every geriatric visit. If your senior pet needs extra attention, Dr. Tempeh makes every moment count.</p>
+              <div class="team-card-creds">
+                <span class="team-cred">Licensed DVM</span>
+                <span class="team-cred">Senior Pet Care</span>
+                <span class="team-cred">Nutrition</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section" style="background:var(--clr-surface);">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:3.5rem;">
+          <div class="section-badge">What We Believe</div>
+          <h2 class="section-title">Our Core Values</h2>
+          <p class="section-subtitle">These principles guide every home visit, every diagnosis, and every interaction we have with you and your pet.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <span class="value-icon" aria-hidden="true">🐾</span>
+            <div class="value-title">Pets First, Always</div>
+            <p class="value-desc">Every decision we make is guided by what is best for the animal in front of us. Their comfort, safety, and well-being are our top priority — no shortcuts.</p>
+          </div>
+          <div class="value-card reveal" data-delay="100">
+            <span class="value-icon" aria-hidden="true">🏡</span>
+            <div class="value-title">Home is Where Healing Happens</div>
+            <p class="value-desc">We firmly believe pets recover better and feel safer at home. Bringing vet care to them isn't just convenient — it's genuinely better medicine.</p>
+          </div>
+          <div class="value-card reveal" data-delay="200">
+            <span class="value-icon" aria-hidden="true">💬</span>
+            <div class="value-title">Honest Communication</div>
+            <p class="value-desc">We tell you what your pet needs — nothing more, nothing less. No unnecessary upsells, no confusing jargon. Just clear, honest veterinary guidance.</p>
+          </div>
+          <div class="value-card reveal" data-delay="50">
+            <span class="value-icon" aria-hidden="true">🔬</span>
+            <div class="value-title">Evidence-Based Care</div>
+            <p class="value-desc">Our recommendations are backed by current veterinary science. We stay updated on best practices so your pets benefit from the most effective treatments available.</p>
+          </div>
+          <div class="value-card reveal" data-delay="150">
+            <span class="value-icon" aria-hidden="true">🤝</span>
+            <div class="value-title">Partnership with Owners</div>
+            <p class="value-desc">You know your pet best. We partner with you to make informed decisions together, respecting your role as your pet's primary caregiver and advocate.</p>
+          </div>
+          <div class="value-card reveal" data-delay="250">
+            <span class="value-icon" aria-hidden="true">😊</span>
+            <div class="value-title">Warmth in Every Visit</div>
+            <p class="value-desc">We bring genuine warmth to every home we enter. Vet care doesn't have to feel cold or clinical — it can be friendly, reassuring, and even a little fun.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Meet Our Team?</h2>
+        <p>Book a home visit today and experience the Nori and Panko difference for yourself — and your pet.</p>
+        <div class="cta-actions">
+          <a href="booking.html" class="btn btn-white btn-lg">Book a Home Visit</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff;">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-name">🐾 Nori and Panko</div>
+          <p class="footer-tagline">Experience the ease of pet care at your doorstep. Your trusted home service veterinarian team in the Philippines.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="booking.html">Book a Visit</a>
+            <a href="blog.html">Blog</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <div class="footer-links">
+            <a href="services.html#vaccination">Home Vaccination</a>
+            <a href="services.html#consultation">Wellness Consultation</a>
+            <a href="services.html#kapon">Spay &amp; Neuter</a>
+            <a href="services.html#grooming">Pet Grooming</a>
+            <a href="services.html#emergency">Emergency Visits</a>
+            <a href="services.html#senior">Senior Pet Care</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <strong style="color:rgba(255,255,255,.75);">Facebook</strong>
+              <a href="https://facebook.com/noriandoankoshop" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.65);">facebook.com/noriandoankoshop</a>
+            </div>
+            <div class="footer-contact-item"><strong style="color:rgba(255,255,255,.75);">Serving</strong> Metro Manila &amp; nearby provinces</div>
+            <div class="footer-contact-item"><strong style="color:rgba(255,255,255,.75);">Hours</strong> Mon–Sat, 8:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Nori and Panko Home Service Veterinarian. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

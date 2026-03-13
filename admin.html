@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard | Nori and Panko Home Service Veterinarian</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-primary:          #E8913A;
+      --clr-primary-dark:     #C97A2E;
+      --clr-primary-light:    #F2B06A;
+      --clr-primary-subtle:   #FFF8F0;
+      --clr-secondary:        #6B8F71;
+      --clr-secondary-subtle: #F0F5F1;
+      --clr-accent:           #D4638F;
+      --clr-bg:               #F5F2EE;
+      --clr-surface:          #FFFFFF;
+      --clr-text:             #2B1F14;
+      --clr-text-secondary:   #6B5A48;
+      --clr-text-muted:       #9B8A78;
+      --clr-border:           #E8DFD5;
+      --ff-heading: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Nunito', system-ui, sans-serif;
+      --radius-sm:  0.375rem;
+      --radius-md:  0.75rem;
+      --radius-lg:  1.25rem;
+      --radius-full: 9999px;
+      --shadow-sm:  0 1px 3px rgba(232,145,58,.08), 0 1px 2px rgba(232,145,58,.04);
+      --shadow-md:  0 4px 16px rgba(232,145,58,.10), 0 2px 6px rgba(232,145,58,.06);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+      --sidebar-w: 260px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--ff-body); font-size: 0.9rem; line-height: 1.6; color: var(--clr-text); background: var(--clr-bg); display: flex; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* SIDEBAR */
+    .admin-sidebar { width: var(--sidebar-w); background: #2B1F14; color: rgba(255,255,255,0.75); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 100; transition: transform var(--transition); }
+    .sidebar-brand { padding: 1.5rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 0.75rem; }
+    .sidebar-brand-logo { width: 38px; height: 38px; border-radius: 50%; background: var(--clr-primary-subtle); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .sidebar-brand-text { font-family: var(--ff-heading); font-size: 0.9rem; font-weight: 700; color: white; line-height: 1.25; }
+    .sidebar-brand-sub { font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .sidebar-nav { padding: 1.25rem 0.75rem; flex: 1; }
+    .sidebar-section-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); padding: 0.75rem 0.75rem 0.375rem; }
+    .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.875rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.65); transition: all var(--transition); margin-bottom: 0.125rem; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.08); color: white; }
+    .sidebar-link.active { background: var(--clr-primary); color: white; font-weight: 600; }
+    .sidebar-link svg { width: 17px; height: 17px; flex-shrink: 0; opacity: 0.75; }
+    .sidebar-link.active svg { opacity: 1; }
+    .sidebar-badge { margin-left: auto; background: var(--clr-primary); color: white; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: var(--radius-full); }
+    .sidebar-link.active .sidebar-badge { background: rgba(255,255,255,0.25); }
+
+    .sidebar-footer { padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    /* MAIN */
+    .admin-main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* TOPBAR */
+    .admin-topbar { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 0 2rem; height: 64px; display: flex; align-items: center; gap: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
+    .topbar-title { font-family: var(--ff-heading); font-size: 1.15rem; font-weight: 700; color: var(--clr-text); }
+    .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 1rem; }
+    .topbar-notif { position: relative; width: 36px; height: 36px; border-radius: 50%; background: var(--clr-bg); border: 1px solid var(--clr-border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; transition: background var(--transition); }
+    .topbar-notif:hover { background: var(--clr-primary-subtle); }
+    .notif-dot { position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--clr-primary); border: 2px solid white; }
+    .topbar-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--clr-primary-subtle); display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; border: 2px solid var(--clr-primary-light); }
+    .topbar-user { font-size: 0.85rem; font-weight: 600; color: var(--clr-text); }
+    .topbar-user span { display: block; font-size: 0.72rem; font-weight: 400; color: var(--clr-text-muted); }
+
+    /* CONTENT AREA */
+    .admin-content { padding: 2rem; flex: 1; }
+
+    /* STATS CARDS */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: box-shadow var(--transition); }
+    .stat-card:hover { box-shadow: var(--shadow-md); }
+    .stat-icon { width: 48px; height: 48px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .stat-body { flex: 1; min-width: 0; }
+    .stat-label { font-size: 0.75rem; font-weight: 600; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.375rem; }
+    .stat-value { font-family: var(--ff-heading); font-size: 1.75rem; font-weight: 700; color: var(--clr-text); line-height: 1.1; margin-bottom: 0.375rem; }
+    .stat-delta { font-size: 0.78rem; display: flex; align-items: center; gap: 0.25rem; }
+    .stat-delta.up { color: var(--clr-secondary); }
+    .stat-delta.down { color: #C0613F; }
+
+    /* PANEL GRID */
+    .panel-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; }
+    .panel { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--clr-border); }
+    .panel-title { font-family: var(--ff-heading); font-size: 1rem; font-weight: 700; color: var(--clr-text); }
+    .panel-actions { display: flex; align-items: center; gap: 0.625rem; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--ff-body); font-size: 0.825rem; font-weight: 600; border-radius: var(--radius-full); padding: 0.5rem 1.1rem; transition: all var(--transition); border: 1.5px solid transparent; cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--clr-primary); color: white; border-color: var(--clr-primary); }
+    .btn-primary:hover { background: var(--clr-primary-dark); border-color: var(--clr-primary-dark); }
+    .btn-ghost { background: transparent; color: var(--clr-text-secondary); border-color: var(--clr-border); }
+    .btn-ghost:hover { background: var(--clr-bg); color: var(--clr-text); }
+    .btn-sm { padding: 0.35rem 0.875rem; font-size: 0.78rem; }
+
+    /* STATUS BADGES */
+    .badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+    .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; flex-shrink: 0; }
+    .badge-pending { background: #FFF8E6; color: #8A6B00; }
+    .badge-confirmed { background: var(--clr-secondary-subtle); color: var(--clr-secondary); }
+    .badge-completed { background: #E8F5E9; color: #2E7D32; }
+    .badge-cancelled { background: #FFEBEE; color: #B71C1C; }
+    .badge-payment { background: #FFF3E0; color: #E65100; }
+
+    /* TABLE */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .data-table th { padding: 0.75rem 1rem; text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--clr-text-muted); background: var(--clr-bg); border-bottom: 1px solid var(--clr-border); white-space: nowrap; }
+    .data-table td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--clr-border); color: var(--clr-text-secondary); vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--clr-bg); }
+    .data-table td strong { color: var(--clr-text); font-weight: 600; }
+
+    /* FILTERS */
+    .table-filters { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--clr-border); background: var(--clr-bg); flex-wrap: wrap; }
+    .filter-select { padding: 0.45rem 0.875rem; border: 1.5px solid var(--clr-border); border-radius: var(--radius-full); font-family: var(--ff-body); font-size: 0.8rem; color: var(--clr-text); background: var(--clr-surface); outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .filter-select:focus { border-color: var(--clr-primary); }
+    .search-input { padding: 0.45rem 0.875rem; border: 1.5px solid var(--clr-border); border-radius: var(--radius-full); font-family: var(--ff-body); font-size: 0.8rem; color: var(--clr-text); background: var(--clr-surface); outline: none; width: 200px; }
+    .search-input:focus { border-color: var(--clr-primary); }
+
+    /* BOOKING DETAIL SIDEBAR PANEL */
+    .booking-detail-panel { display: flex; flex-direction: column; gap: 1.25rem; }
+    .detail-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .detail-header { padding: 1rem 1.25rem; border-bottom: 1px solid var(--clr-border); font-family: var(--ff-heading); font-size: 0.9rem; font-weight: 700; color: var(--clr-text); }
+    .detail-body { padding: 1.25rem; }
+    .detail-row { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.45rem 0; border-bottom: 1px solid var(--clr-border); font-size: 0.8rem; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-key { color: var(--clr-text-muted); flex-shrink: 0; }
+    .detail-val { font-weight: 600; color: var(--clr-text); text-align: right; max-width: 160px; word-break: break-word; }
+
+    /* QUICK STAT MINI */
+    .mini-stats { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.25rem; }
+    .mini-stat-row { display: flex; justify-content: space-between; align-items: center; }
+    .mini-stat-label { font-size: 0.8rem; color: var(--clr-text-secondary); }
+    .mini-stat-val { font-size: 0.875rem; font-weight: 700; color: var(--clr-text); }
+
+    /* PROGRESS BAR */
+    .progress-bar { height: 6px; background: var(--clr-border); border-radius: 3px; margin-top: 0.375rem; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 3px; background: var(--clr-primary); }
+
+    /* ACTION DOTS */
+    .action-menu { position: relative; display: inline-block; }
+    .action-btn { width: 30px; height: 30px; border-radius: 50%; background: transparent; border: 1.5px solid var(--clr-border); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--clr-text-muted); transition: all var(--transition); cursor: pointer; line-height: 1; }
+    .action-btn:hover { background: var(--clr-bg); color: var(--clr-text); border-color: var(--clr-text-muted); }
+    .action-dropdown { display: none; position: absolute; right: 0; top: calc(100% + 4px); background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-md); padding: 0.375rem; box-shadow: var(--shadow-md); min-width: 150px; z-index: 20; }
+    .action-dropdown.open { display: block; }
+    .action-dropdown button { display: flex; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem 0.75rem; font-size: 0.8rem; color: var(--clr-text-secondary); border-radius: var(--radius-sm); transition: background var(--transition); text-align: left; }
+    .action-dropdown button:hover { background: var(--clr-bg); color: var(--clr-text); }
+    .action-dropdown button.danger { color: #B71C1C; }
+    .action-dropdown button.danger:hover { background: #FFEBEE; }
+
+    /* NOTIFICATION ITEM */
+    .notif-item { display: flex; align-items: flex-start; gap: 0.875rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--clr-border); cursor: pointer; transition: background var(--transition); }
+    .notif-item:hover { background: var(--clr-bg); }
+    .notif-item:last-child { border-bottom: none; }
+    .notif-dot-indicator { width: 8px; height: 8px; border-radius: 50%; background: var(--clr-primary); flex-shrink: 0; margin-top: 6px; }
+    .notif-dot-indicator.read { background: var(--clr-border); }
+    .notif-text { font-size: 0.8rem; color: var(--clr-text-secondary); line-height: 1.55; }
+    .notif-text strong { color: var(--clr-text); }
+    .notif-time { font-size: 0.72rem; color: var(--clr-text-muted); margin-top: 0.25rem; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .panel-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .admin-sidebar { transform: translateX(-100%); } .admin-main { margin-left: 0; } .stats-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="admin-sidebar" id="adminSidebar" role="navigation" aria-label="Admin navigation">
+  <div class="sidebar-brand">
+    <div class="sidebar-brand-logo">🐾</div>
+    <div>
+      <div class="sidebar-brand-text">Nori and Panko</div>
+      <div class="sidebar-brand-sub">Admin Dashboard</div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Main</div>
+    <a href="#" class="sidebar-link active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+    <a href="#" class="sidebar-link" id="sideBookings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Bookings
+      <span class="sidebar-badge">7</span>
+    </a>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Clients
+    </a>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Pets
+    </a>
+
+    <div class="sidebar-section-label" style="margin-top:0.75rem;">Management</div>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Schedule
+    </a>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Payments
+    </a>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Reports
+    </a>
+
+    <div class="sidebar-section-label" style="margin-top:0.75rem;">Site</div>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Blog Posts
+    </a>
+    <a href="#" class="sidebar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+      Settings
+    </a>
+
+    <div class="sidebar-section-label" style="margin-top:0.75rem;">External</div>
+    <a href="index.html" class="sidebar-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Live Site
+    </a>
+    <a href="https://facebook.com/noriandoankoshop" class="sidebar-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Facebook Page
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    Nori and Panko &copy; 2025<br>Admin v1.0
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="admin-main">
+
+  <!-- TOPBAR -->
+  <header class="admin-topbar">
+    <div style="font-size:1.5rem;margin-right:0.25rem;">🐾</div>
+    <div class="topbar-title">Dashboard</div>
+    <div class="topbar-right">
+      <div style="font-size:0.8rem;color:var(--clr-text-muted);">
+        <span id="currentDate"></span>
+      </div>
+      <a href="booking.html" class="btn btn-primary btn-sm" target="_blank" rel="noopener">+ New Booking</a>
+      <button class="topbar-notif" aria-label="Notifications" id="notifBtn">
+        &#128276;
+        <div class="notif-dot"></div>
+      </button>
+      <div style="display:flex;align-items:center;gap:0.625rem;">
+        <div class="topbar-avatar">&#128054;</div>
+        <div class="topbar-user">
+          Admin
+          <span>noriandpanko.com</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="admin-content">
+
+    <!-- WELCOME BAR -->
+    <div style="background:linear-gradient(135deg,var(--clr-primary) 0%,var(--clr-primary-dark) 100%);color:white;border-radius:var(--radius-lg);padding:1.5rem 2rem;margin-bottom:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div style="font-family:var(--ff-heading);font-size:1.15rem;font-weight:700;margin-bottom:0.25rem;">Good morning, Admin!</div>
+        <div style="font-size:0.85rem;opacity:.88;">You have <strong>7 pending bookings</strong> that need attention today.</div>
+      </div>
+      <button class="btn" style="background:rgba(255,255,255,0.18);color:white;border-color:rgba(255,255,255,0.3);">Review Pending &rarr;</button>
+    </div>
+
+    <!-- STATS GRID -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:var(--clr-primary-subtle);">&#128197;</div>
+        <div class="stat-body">
+          <div class="stat-label">Bookings Today</div>
+          <div class="stat-value">12</div>
+          <div class="stat-delta up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            +3 vs yesterday
+          </div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:var(--clr-secondary-subtle);">&#9989;</div>
+        <div class="stat-body">
+          <div class="stat-label">Completed This Week</div>
+          <div class="stat-value">48</div>
+          <div class="stat-delta up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            +8 vs last week
+          </div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF8E6;">&#9203;</div>
+        <div class="stat-body">
+          <div class="stat-label">Pending Payment</div>
+          <div class="stat-value">7</div>
+          <div class="stat-delta down">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Needs review
+          </div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:var(--clr-primary-subtle);">&#8369;</div>
+        <div class="stat-body">
+          <div class="stat-label">Revenue This Month</div>
+          <div class="stat-value">&#8369;128k</div>
+          <div class="stat-delta up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            +14% vs last month
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN PANEL GRID -->
+    <div class="panel-grid">
+
+      <!-- BOOKINGS TABLE -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Recent Bookings</div>
+          <div class="panel-actions">
+            <button class="btn btn-ghost btn-sm">Export CSV</button>
+            <button class="btn btn-primary btn-sm">View All</button>
+          </div>
+        </div>
+        <div class="table-filters">
+          <input type="text" class="search-input" placeholder="Search client or pet..." id="tableSearch">
+          <select class="filter-select" id="statusFilter">
+            <option value="">All Status</option>
+            <option value="pending">Pending Payment</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <select class="filter-select" id="serviceFilter">
+            <option value="">All Services</option>
+            <option value="vaccination">Vaccination</option>
+            <option value="consultation">Consultation</option>
+            <option value="kapon">Kapon</option>
+            <option value="grooming">Grooming</option>
+            <option value="senior">Senior Care</option>
+          </select>
+          <div style="margin-left:auto;font-size:0.78rem;color:var(--clr-text-muted);" id="rowCount">Showing 10 bookings</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="bookingsTable">
+            <thead>
+              <tr>
+                <th>Ref #</th>
+                <th>Client</th>
+                <th>Pet</th>
+                <th>Service</th>
+                <th>Date &amp; Time</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <td><strong>NP-2025-0142</strong></td>
+                <td>Angela Cruz</td>
+                <td>Mochi (Dog)</td>
+                <td>Home Vaccination</td>
+                <td>Mar 14, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">9:00 AM</span></td>
+                <td><span class="badge badge-pending">Pending Payment</span></td>
+                <td>&#8369;500</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0141</strong></td>
+                <td>Rico Mendoza</td>
+                <td>Adobo (Dog)</td>
+                <td>Wellness Consult</td>
+                <td>Mar 14, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">10:00 AM</span></td>
+                <td><span class="badge badge-confirmed">Confirmed</span></td>
+                <td>&#8369;700</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0140</strong></td>
+                <td>Sofia Lim</td>
+                <td>Tempeh (Cat)</td>
+                <td>Spay (Kapon)</td>
+                <td>Mar 13, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">1:00 PM</span></td>
+                <td><span class="badge badge-completed">Completed</span></td>
+                <td>&#8369;3,500</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0139</strong></td>
+                <td>Joel Reyes</td>
+                <td>Siopao (Dog)</td>
+                <td>Grooming</td>
+                <td>Mar 13, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">2:00 PM</span></td>
+                <td><span class="badge badge-completed">Completed</span></td>
+                <td>&#8369;850</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0138</strong></td>
+                <td>Grace Santos</td>
+                <td>Pocky (Cat)</td>
+                <td>Senior Wellness</td>
+                <td>Mar 12, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">9:00 AM</span></td>
+                <td><span class="badge badge-confirmed">Confirmed</span></td>
+                <td>&#8369;800</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0137</strong></td>
+                <td>Mark Tan</td>
+                <td>Gyoza (Dog)</td>
+                <td>Home Vaccination</td>
+                <td>Mar 12, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">11:00 AM</span></td>
+                <td><span class="badge badge-pending">Pending Payment</span></td>
+                <td>&#8369;500</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0136</strong></td>
+                <td>Carla Bautista</td>
+                <td>Ramen (Cat)</td>
+                <td>Deworming</td>
+                <td>Mar 11, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">3:00 PM</span></td>
+                <td><span class="badge badge-completed">Completed</span></td>
+                <td>&#8369;350</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0135</strong></td>
+                <td>Ben Dela Cruz</td>
+                <td>Tofu (Dog)</td>
+                <td>Neuter (Kapon)</td>
+                <td>Mar 11, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">9:00 AM</span></td>
+                <td><span class="badge badge-completed">Completed</span></td>
+                <td>&#8369;2,800</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0134</strong></td>
+                <td>Maria Flores</td>
+                <td>Natto (Cat)</td>
+                <td>Wellness Consult</td>
+                <td>Mar 10, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">4:00 PM</span></td>
+                <td><span class="badge badge-cancelled">Cancelled</span></td>
+                <td>&#8369;0</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+              <tr>
+                <td><strong>NP-2025-0133</strong></td>
+                <td>Kevin Uy</td>
+                <td>Pandesal (Dog)</td>
+                <td>Home Vaccination</td>
+                <td>Mar 10, 2025<br><span style="font-size:0.75rem;color:var(--clr-text-muted);">1:00 PM</span></td>
+                <td><span class="badge badge-confirmed">Confirmed</span></td>
+                <td>&#8369;1,000</td>
+                <td><div class="action-menu"><button class="action-btn" aria-label="Actions">&#8942;</button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="booking-detail-panel">
+
+        <!-- TODAY'S SCHEDULE -->
+        <div class="detail-card">
+          <div class="detail-header">&#128197; Today's Schedule</div>
+          <div style="padding:0.75rem 1.25rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clr-text-muted);margin-bottom:0.75rem;">March 14, 2025</div>
+            <div style="display:flex;flex-direction:column;gap:0.625rem;">
+              <div style="display:flex;gap:0.875rem;align-items:flex-start;padding:0.75rem;background:var(--clr-primary-subtle);border-radius:var(--radius-md);border-left:3px solid var(--clr-primary);">
+                <div style="font-size:0.72rem;font-weight:700;color:var(--clr-primary);white-space:nowrap;padding-top:2px;">9:00 AM</div>
+                <div>
+                  <div style="font-size:0.82rem;font-weight:700;color:var(--clr-text);">Angela Cruz — Mochi</div>
+                  <div style="font-size:0.75rem;color:var(--clr-text-muted);">Home Vaccination &bull; Quezon City</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:0.875rem;align-items:flex-start;padding:0.75rem;background:var(--clr-secondary-subtle);border-radius:var(--radius-md);border-left:3px solid var(--clr-secondary);">
+                <div style="font-size:0.72rem;font-weight:700;color:var(--clr-secondary);white-space:nowrap;padding-top:2px;">10:00 AM</div>
+                <div>
+                  <div style="font-size:0.82rem;font-weight:700;color:var(--clr-text);">Rico Mendoza — Adobo</div>
+                  <div style="font-size:0.75rem;color:var(--clr-text-muted);">Wellness Consultation &bull; Marikina</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:0.875rem;align-items:flex-start;padding:0.75rem;background:var(--clr-bg);border-radius:var(--radius-md);border-left:3px solid var(--clr-border);">
+                <div style="font-size:0.72rem;font-weight:700;color:var(--clr-text-muted);white-space:nowrap;padding-top:2px;">1:00 PM</div>
+                <div>
+                  <div style="font-size:0.82rem;font-weight:700;color:var(--clr-text);">Open Slot</div>
+                  <div style="font-size:0.75rem;color:var(--clr-text-muted);">Available for booking</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:0.875rem;align-items:flex-start;padding:0.75rem;background:var(--clr-bg);border-radius:var(--radius-md);border-left:3px solid var(--clr-border);">
+                <div style="font-size:0.72rem;font-weight:700;color:var(--clr-text-muted);white-space:nowrap;padding-top:2px;">3:00 PM</div>
+                <div>
+                  <div style="font-size:0.82rem;font-weight:700;color:var(--clr-text);">Open Slot</div>
+                  <div style="font-size:0.75rem;color:var(--clr-text-muted);">Available for booking</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE BREAKDOWN -->
+        <div class="detail-card">
+          <div class="detail-header">&#128202; Service Breakdown (This Month)</div>
+          <div class="mini-stats">
+            <div>
+              <div class="mini-stat-row"><span class="mini-stat-label">Home Vaccination</span><span class="mini-stat-val">42%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:42%;background:var(--clr-primary);"></div></div>
+            </div>
+            <div>
+              <div class="mini-stat-row"><span class="mini-stat-label">Wellness Consultation</span><span class="mini-stat-val">24%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:24%;background:var(--clr-secondary);"></div></div>
+            </div>
+            <div>
+              <div class="mini-stat-row"><span class="mini-stat-label">Kapon (Spay/Neuter)</span><span class="mini-stat-val">18%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:18%;background:#7B1FA2;"></div></div>
+            </div>
+            <div>
+              <div class="mini-stat-row"><span class="mini-stat-label">Grooming</span><span class="mini-stat-val">10%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:10%;background:#2E7D32;"></div></div>
+            </div>
+            <div>
+              <div class="mini-stat-row"><span class="mini-stat-label">Senior Care &amp; Other</span><span class="mini-stat-val">6%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:6%;background:var(--clr-accent);"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+        <div class="detail-card">
+          <div class="detail-header" style="display:flex;align-items:center;justify-content:space-between;">
+            <span>Recent Activity</span>
+            <button class="btn btn-ghost btn-sm">Mark all read</button>
+          </div>
+          <div>
+            <div class="notif-item">
+              <div class="notif-dot-indicator"></div>
+              <div>
+                <div class="notif-text"><strong>New booking</strong> from Angela Cruz — Home Vaccination for Mochi. Payment screenshot uploaded.</div>
+                <span class="notif-time">5 minutes ago</span>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-dot-indicator"></div>
+              <div>
+                <div class="notif-text"><strong>Mark Tan</strong> completed payment for NP-2025-0137. Awaiting verification.</div>
+                <span class="notif-time">1 hour ago</span>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-dot-indicator read"></div>
+              <div>
+                <div class="notif-text">Sofia Lim's post-kapon check-in sent via Facebook Messenger. Recovery looks good.</div>
+                <span class="notif-time">3 hours ago</span>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-dot-indicator read"></div>
+              <div>
+                <div class="notif-text">Maria Flores cancelled booking NP-2025-0134. Reason: "Pet is sick." Fee reviewed.</div>
+                <span class="notif-time">Yesterday</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  /* Admin dashboard logic */
+  (function() {
+    'use strict';
+
+    /* Date in topbar */
+    const dateEl = document.getElementById('currentDate');
+    if (dateEl) {
+      const now = new Date();
+      dateEl.textContent = now.toLocaleDateString('en-PH', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    /* Sidebar link active state */
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('target') === '_blank') return;
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        // Update topbar title
+        const topbarTitle = document.querySelector('.topbar-title');
+        if (topbarTitle) topbarTitle.textContent = this.textContent.trim();
+      });
+    });
+
+    /* Action menus */
+    document.querySelectorAll('.action-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.closest('.action-menu');
+        let dropdown = menu.querySelector('.action-dropdown');
+
+        // Close all others
+        document.querySelectorAll('.action-dropdown').forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+
+        if (!dropdown) {
+          dropdown = document.createElement('div');
+          dropdown.className = 'action-dropdown';
+          dropdown.innerHTML = `
+            <button><span>&#10003;</span> Confirm</button>
+            <button><span>&#128065;</span> View Details</button>
+            <button><span>&#9998;</span> Edit Booking</button>
+            <button><span>&#128172;</span> Message Client</button>
+            <button class="danger"><span>&#10005;</span> Cancel Booking</button>
+          `;
+          menu.appendChild(dropdown);
+        }
+
+        dropdown.classList.toggle('open');
+      });
+    });
+
+    // Close action menus on outside click
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.action-dropdown').forEach(d => d.classList.remove('open'));
+    });
+
+    /* Table search filter */
+    const searchInput = document.getElementById('tableSearch');
+    const statusFilter = document.getElementById('statusFilter');
+    const rows = document.querySelectorAll('#tableBody tr');
+    const rowCount = document.getElementById('rowCount');
+
+    function filterTable() {
+      const query = searchInput ? searchInput.value.toLowerCase() : '';
+      const status = statusFilter ? statusFilter.value.toLowerCase() : '';
+      let visible = 0;
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const badge = row.querySelector('.badge');
+        const badgeText = badge ? badge.textContent.toLowerCase() : '';
+        const matchesSearch = !query || text.includes(query);
+        const matchesStatus = !status || badgeText.includes(status);
+
+        if (matchesSearch && matchesStatus) {
+          row.style.display = '';
+          visible++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (rowCount) rowCount.textContent = 'Showing ' + visible + ' booking' + (visible !== 1 ? 's' : '');
+    }
+
+    if (searchInput) searchInput.addEventListener('input', filterTable);
+    if (statusFilter) statusFilter.addEventListener('change', filterTable);
+
+    /* Nav scroll detection (topbar shadow) */
+    const main = document.querySelector('.admin-main');
+    const topbar = document.querySelector('.admin-topbar');
+    if (main && topbar) {
+      main.addEventListener('scroll', () => {
+        topbar.style.boxShadow = main.scrollTop > 4 ? '0 4px 16px rgba(232,145,58,.10)' : '';
+      });
+    }
+
+  })();
+</script>
+</body>
+</html>
